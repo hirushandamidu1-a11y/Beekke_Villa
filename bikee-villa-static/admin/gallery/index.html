@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — Beekke Villa Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          'woods':'#3E2723','woods-light':'#5D4037','woods-dark':'#1B0000',
+          'gold':'#D4AF37','gold-light':'#E8CC6A','gold-dark':'#A68B1E',
+          'parchment':'#FDF5E6','parchment-dark':'#F5E6C8','ink':'#2C1810'
+        },
+        fontFamily: {
+          display:['Playfair Display','Georgia','serif'],
+          body:['Lora','Georgia','serif'],
+          classic:['EB Garamond','Georgia','serif'],
+        }
+      }}
+    }
+  </script>
+  <style>
+    body { font-family: 'Lora', Georgia, serif; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #1B0000; }
+    ::-webkit-scrollbar-thumb { background: #A68B1E; border-radius: 3px; }
+    .sidebar-link { transition: all 0.3s ease; }
+    .sidebar-link:hover, .sidebar-link.active {
+      background: rgba(212,175,55,0.1);
+      border-right: 3px solid #D4AF37;
+      color: #D4AF37;
+    }
+    .sidebar-link.active { background: rgba(212,175,55,0.15); }
+    .admin-card {
+      background: rgba(253,245,230,0.04);
+      border: 1px solid rgba(212,175,55,0.15);
+      transition: all 0.3s ease;
+    }
+    .admin-card:hover {
+      border-color: rgba(212,175,55,0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .badge { padding: 2px 10px; border-radius: 9999px; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'EB Garamond', Georgia, serif; }
+    .badge-approved { background: rgba(34,197,94,0.15); color: #22C55E; border: 1px solid rgba(34,197,94,0.3); }
+    .btn-sm {
+      padding: 6px 14px; border-radius: 4px; font-size: 0.7rem; font-family: 'EB Garamond', Georgia, serif;
+      letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.3s ease; cursor: pointer; border: none;
+    }
+    .btn-delete  { background: rgba(156,163,175,0.1); color: #9CA3AF; border: 1px solid rgba(156,163,175,0.2); }
+    .btn-delete:hover  { background: #EF4444; color: white; border-color: #EF4444; }
+    .btn-gold-sm {
+      background: linear-gradient(135deg, #E8CC6A, #D4AF37, #A68B1E);
+      color: #3E2723; font-weight: 600;
+    }
+    .btn-gold-sm:hover { box-shadow: 0 4px 16px rgba(212,175,55,0.4); transform: translateY(-1px); }
+  </style>
+</head>
+<body class="bg-woods-dark text-parchment min-h-screen">
+
+  <div class="flex min-h-screen">
+
+    <!-- ═══ SIDEBAR ═══ -->
+    <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-40 w-64 bg-woods-dark border-r border-gold/10 flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+      
+      <!-- Logo -->
+      <div class="p-6 border-b border-gold/10">
+        <a href="../../index.html" target="_blank" class="block group">
+          <p class="font-display text-2xl font-bold text-gold tracking-widest group-hover:text-gold-light transition-colors">Beekke</p>
+          <p class="font-classic text-parchment/30 text-xs tracking-[0.4em] uppercase">Admin Panel</p>
+        </a>
+      </div>
+
+      <!-- Nav -->
+      <nav class="flex-1 py-6">
+        <a href="../index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60">
+          <span class="text-lg">📊</span><span>Dashboard</span>
+        </a>
+        <a href="../bookings/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60">
+          <span class="text-lg">📅</span><span>Bookings</span>
+        </a>
+        <a href="index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60 active">
+          <span class="text-lg">🖼️</span><span>Gallery</span>
+        </a>
+        <a href="../experiences/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60">
+          <span class="text-lg">🌴</span><span>Experiences</span>
+        </a>
+        <a href="../testimonials/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60">
+          <span class="text-lg">💬</span><span>Testimonials</span>
+        </a>
+        <a href="../faqs/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60">
+          <span class="text-lg">❓</span><span>FAQs</span>
+        </a>
+        <a href="../settings/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60">
+          <span class="text-lg">⚙️</span><span>Settings</span>
+        </a>
+      </nav>
+
+      <!-- Admin info -->
+      <div class="p-6 border-t border-gold/10">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center text-gold font-display font-bold text-sm">
+            A
+          </div>
+          <div>
+            <p class="font-classic text-parchment text-sm">Administrator</p>
+          </div>
+        </div>
+        <a href="#" class="block text-center font-classic text-xs tracking-widest uppercase text-parchment/30 hover:text-red-400 transition-colors py-2 border border-parchment/10 rounded hover:border-red-400/30">
+          Sign Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- Sidebar overlay (mobile) -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 z-30 hidden lg:hidden" onclick="toggleSidebar()"></div>
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <main class="flex-1 flex flex-col min-h-screen">
+      <!-- Top bar -->
+      <header class="sticky top-0 z-20 bg-woods-dark/95 backdrop-blur border-b border-gold/10 px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <button onclick="toggleSidebar()" class="lg:hidden text-gold text-xl p-1">☰</button>
+          <div>
+            <h1 class="font-display text-xl text-parchment font-semibold">Gallery Management</h1>
+          </div>
+        </div>
+        <a href="../../index.html" target="_blank" class="font-classic text-xs tracking-widest uppercase text-gold/60 hover:text-gold transition-colors hidden sm:block">
+          View Website →
+        </a>
+      </header>
+
+      <!-- Page Content -->
+      <div class="flex-1 p-6 lg:p-8">
+        <!-- Upload Form -->
+        <div class="admin-card rounded-lg p-6 mb-8">
+          <h2 class="font-display text-lg text-parchment font-semibold mb-4">📤 Upload New Image</h2>
+          <form id="uploadForm" class="grid md:grid-cols-4 gap-4 items-end">
+            <div>
+              <label class="block font-classic text-xs tracking-widest uppercase text-parchment/40 mb-2">Image File *</label>
+              <input type="file" id="imageInput" required accept="image/jpeg,image/png,image/webp"
+                     class="w-full text-sm text-parchment/60 file:mr-3 file:py-2 file:px-4 file:rounded file:border file:border-gold/30 file:text-gold file:bg-gold/10 file:font-classic file:text-xs file:tracking-wider file:uppercase file:cursor-pointer hover:file:bg-gold/20 transition-all" />
+            </div>
+            <div>
+              <label class="block font-classic text-xs tracking-widest uppercase text-parchment/40 mb-2">Title / Caption</label>
+              <input type="text" id="titleInput" placeholder="e.g. Grand Archway"
+                     class="w-full bg-parchment/5 border border-gold/20 text-parchment rounded px-3 py-2 text-sm font-body focus:border-gold outline-none" />
+            </div>
+            <div>
+              <label class="block font-classic text-xs tracking-widest uppercase text-parchment/40 mb-2">Category *</label>
+              <select id="categoryInput" required
+                      class="w-full bg-parchment/5 border border-gold/20 text-parchment rounded px-3 py-2 text-sm font-body focus:border-gold outline-none">
+                <option value="exterior">Exterior</option>
+                <option value="interior">Interior</option>
+                <option value="rooms">Rooms</option>
+                <option value="dining">Dining</option>
+                <option value="garden">Garden</option>
+                <option value="events">Events</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <button type="submit" id="uploadBtn" class="btn-sm btn-gold-sm w-full py-2.5 text-sm">✦ Upload</button>
+            </div>
+          </form>
+          <p class="mt-3 font-classic text-parchment/20 text-xs tracking-wider">Accepted: JPG, PNG, WebP · Max size: 5 MB</p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="admin-card rounded-lg overflow-hidden">
+          <div class="px-6 py-4 border-b border-gold/10 flex items-center justify-between">
+            <h2 class="font-display text-lg text-parchment font-semibold">Gallery Images</h2>
+          </div>
+          <div id="galleryGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6">
+            <div class="col-span-full py-16 text-center text-parchment/30 font-classic tracking-wider">
+              <p class="text-4xl mb-4">🖼️</p>
+              <p>Loading images...</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- end page content -->
+
+      <!-- Footer -->
+      <footer class="px-6 py-4 border-t border-gold/10 text-center">
+        <p class="font-classic text-parchment/20 text-xs tracking-wider">
+          &copy; 2026 Beekke Villa Admin Panel
+        </p>
+      </footer>
+    </main>
+  </div>
+
+  <script type="module" src="../../assets/js/admin-gallery.js"></script>
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>

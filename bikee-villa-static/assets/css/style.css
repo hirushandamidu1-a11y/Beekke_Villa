@@ -1,0 +1,375 @@
+/* ============================================================
+   BIKEE VILLA — Custom CSS
+   Built on top of Tailwind CDN
+   Theme: Antique Walawwa · Gold · Deep Woods · Parchment
+   ============================================================ */
+
+/* ── Google Font imports handled in <head> ── */
+
+/* ── Root Variables ────────────────────────────────────────── */
+:root {
+  --woods:        #3E2723;
+  --woods-light:  #5D4037;
+  --woods-dark:   #1B0000;
+  --gold:         #D4AF37;
+  --gold-light:   #E8CC6A;
+  --gold-dark:    #A68B1E;
+  --parchment:    #FDF5E6;
+  --parchment-dk: #F5E6C8;
+  --ink:          #2C1810;
+  --transition:   all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Base reset ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: 'Lora', Georgia, serif;
+  background-color: var(--parchment);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--woods);
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--woods-dark); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* ══════════════════════════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════════════════════════ */
+#navbar {
+  background: transparent;
+  transition: background 0.5s ease, padding 0.5s ease, backdrop-filter 0.5s ease;
+}
+
+#navbar.scrolled {
+  background: rgba(27, 0, 0, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+.nav-link:not(.border):hover::after { width: 100%; }
+
+/* ── Hamburger animation ──────────────────────────────────── */
+.hamburger-open .hamburger-line:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger-open .hamburger-line:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger-open .hamburger-line:nth-child(3) { transform: translateY(-8px) rotate(-45deg) scaleX(1.5); }
+
+/* ══════════════════════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════════════════════ */
+.hero-bg {
+  transform: scale(1.05);
+  transition: transform 8s ease-out;
+}
+.hero-bg.loaded { transform: scale(1); }
+
+.scroll-line {
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50%       { opacity: 0.8; transform: scaleY(1.2); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════════════════════════════ */
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  transition: background-position 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+.btn-gold:hover {
+  background-position: 100% 50%;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+}
+.btn-gold:active { transform: translateY(0); }
+
+/* ══════════════════════════════════════════════════════════════
+   ANIMATIONS — Scroll Reveal
+══════════════════════════════════════════════════════════════ */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal.delay-1 { transition-delay: 0.15s; }
+.reveal.delay-2 { transition-delay: 0.30s; }
+.reveal.delay-3 { transition-delay: 0.45s; }
+
+/* ══════════════════════════════════════════════════════════════
+   GALLERY — Masonry
+══════════════════════════════════════════════════════════════ */
+/* Removed Masonry classes as we are now using Tailwind Grid for the gallery */
+
+/* filter animation */
+.gallery-item.hidden-item {
+  display: none;
+}
+
+/* ── Gallery Filter buttons ───────────────────────────────── */
+.gallery-filter.active {
+  background: var(--gold);
+  color: var(--woods);
+  border-color: var(--gold);
+}
+
+/* ── Lightbox ─────────────────────────────────────────────── */
+#lightbox {
+  backdrop-filter: blur(8px);
+}
+#lightbox.active { display: flex; }
+
+/* ══════════════════════════════════════════════════════════════
+   PRICING CARDS
+══════════════════════════════════════════════════════════════ */
+.pricing-card {
+  transition: var(--transition);
+}
+.pricing-card:hover {
+  transform: translateY(-6px);
+}
+.pricing-card-featured {
+  transition: var(--transition);
+}
+.pricing-card-featured:hover {
+  transform: translateY(-6px) scale(1.07);
+  box-shadow: 0 24px 64px rgba(212, 175, 55, 0.4);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   BOOKING FORM INPUTS
+══════════════════════════════════════════════════════════════ */
+.form-label {
+  display: block;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(253, 245, 230, 0.5);
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  background: rgba(253, 245, 230, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  color: #FDF5E6;
+  border-radius: 2px;
+  padding: 10px 14px;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.form-input::placeholder { color: rgba(253, 245, 230, 0.25); }
+.form-input:focus {
+  border-color: var(--gold);
+  background: rgba(253, 245, 230, 0.1);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+.form-input option { background: var(--woods-dark); color: var(--parchment); }
+
+/* Flatpickr dark theme overrides */
+.flatpickr-calendar {
+  background: var(--woods-dark) !important;
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6) !important;
+  font-family: 'Lora', Georgia, serif !important;
+  border-radius: 4px !important;
+}
+.flatpickr-day { color: var(--parchment) !important; border-radius: 2px !important; }
+.flatpickr-day:hover, .flatpickr-day.selected { background: var(--gold) !important; color: var(--woods) !important; border-color: var(--gold) !important; }
+.flatpickr-day.disabled { color: rgba(253,245,230,0.2) !important; }
+.flatpickr-months, .flatpickr-weekdays { background: var(--woods) !important; }
+.flatpickr-month, .flatpickr-weekday { color: var(--gold) !important; fill: var(--gold) !important; }
+.flatpickr-prev-month svg, .flatpickr-next-month svg { fill: var(--gold) !important; }
+.numInputWrapper input { color: var(--parchment) !important; }
+.flatpickr-current-month input { color: var(--gold) !important; }
+.flatpickr-current-month .flatpickr-monthDropdown-months { color: var(--gold) !important; background: var(--woods) !important; }
+
+/* ══════════════════════════════════════════════════════════════
+   ORNAMENTAL DIVIDER
+══════════════════════════════════════════════════════════════ */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE TWEAKS
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .gallery-masonry { columns: 2; }
+  .gallery-item-tall  img { height: 200px; }
+  .gallery-item-short img { height: 140px; }
+}
+
+/* Hide scrollbar for horizontal scrolling elements */
+.hide-scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SWIPE HINT ANIMATION
+══════════════════════════════════════════════════════════════ */
+.swipe-hint-icon {
+  animation: swipeHintAnim 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes swipeHintAnim {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 0.8;
+  }
+  30% {
+    transform: translateX(-15px) scale(0.9);
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(10px) scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 0;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   GALLERY — See More / See Less
+══════════════════════════════════════════════════════════════ */
+
+/* Items beyond first 10 are hidden by default */
+.gallery-hidden-extra {
+  display: none !important;
+  opacity: 0;
+  transform: scale(0.95) translateY(8px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+/* When gallery is expanded, override hidden state */
+#galleryGrid.gallery-expanded .gallery-hidden-extra {
+  display: block !important;
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Staggered entrance animation for revealed items */
+#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(11) { transition-delay: 0.05s; }
+#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(12) { transition-delay: 0.10s; }
+#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(13) { transition-delay: 0.15s; }
+#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(14) { transition-delay: 0.20s; }
+#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(15) { transition-delay: 0.25s; }
+#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(n+16) { transition-delay: 0.30s; }
+
+/* ══════════════════════════════════════════════════════════════
+   FLOATING WHATSAPP WIDGET
+══════════════════════════════════════════════════════════════ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px; /* Pill shape */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px 12px 16px; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  .whatsapp-float {
+    bottom: 90px;
+    right: 20px;
+    padding: 10px 16px 10px 12px;
+  }
+  .whatsapp-float span {
+    display: none; /* Hide text on mobile to save space */
+  }
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  background-color: #1ebe57; 
+  color: #FFF;
+}
+
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* ── Accessibility: reduce motion ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

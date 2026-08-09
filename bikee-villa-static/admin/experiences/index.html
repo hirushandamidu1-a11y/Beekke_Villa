@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiences — Beekke Villa Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { 'woods':'#3E2723','woods-dark':'#1B0000','gold':'#D4AF37','gold-light':'#E8CC6A','parchment':'#FDF5E6' },
+        fontFamily: { display:['Playfair Display','serif'], body:['Lora','serif'], classic:['EB Garamond','serif'] }
+      }}
+    }
+  </script>
+  <style>
+    body { font-family: 'Lora', Georgia, serif; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #1B0000; }
+    ::-webkit-scrollbar-thumb { background: #A68B1E; border-radius: 3px; }
+    .sidebar-link { transition: all 0.3s ease; }
+    .sidebar-link:hover, .sidebar-link.active { background: rgba(212,175,55,0.1); border-right: 3px solid #D4AF37; color: #D4AF37; }
+    .sidebar-link.active { background: rgba(212,175,55,0.15); }
+    .admin-card { background: rgba(253,245,230,0.04); border: 1px solid rgba(212,175,55,0.15); }
+    .btn-sm { padding: 6px 14px; border-radius: 4px; font-size: 0.7rem; font-family: 'EB Garamond', serif; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; border: none; }
+    .btn-gold-sm { background: linear-gradient(135deg, #E8CC6A, #D4AF37); color: #3E2723; font-weight: 600; }
+  </style>
+</head>
+<body class="bg-woods-dark text-parchment min-h-screen">
+  <div class="flex min-h-screen">
+    <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-40 w-64 bg-woods-dark border-r border-gold/10 flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+      <div class="p-6 border-b border-gold/10">
+        <a href="../../index.html" target="_blank" class="block group">
+          <p class="font-display text-2xl font-bold text-gold tracking-widest">Beekke</p>
+          <p class="font-classic text-parchment/30 text-xs tracking-[0.4em] uppercase">Admin Panel</p>
+        </a>
+      </div>
+      <nav class="flex-1 py-6">
+        <a href="../index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">📊</span><span>Dashboard</span></a>
+        <a href="../bookings/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">📅</span><span>Bookings</span></a>
+        <a href="../gallery/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">🖼️</span><span>Gallery</span></a>
+        <a href="index.html" class="sidebar-link active flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">🌴</span><span>Experiences</span></a>
+        <a href="../testimonials/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">💬</span><span>Testimonials</span></a>
+        <a href="../faqs/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">❓</span><span>FAQs</span></a>
+        <a href="../settings/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">⚙️</span><span>Settings</span></a>
+      </nav>
+      <div class="p-6 border-t border-gold/10"><div class="flex items-center gap-3 mb-3"><div class="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center text-gold font-display font-bold text-sm">A</div><div><p class="font-classic text-parchment text-sm">Administrator</p></div></div></div>
+    </aside>
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 z-30 hidden lg:hidden" onclick="toggleSidebar()"></div>
+    <main class="flex-1 flex flex-col min-h-screen">
+      <header class="sticky top-0 z-20 bg-woods-dark/95 backdrop-blur border-b border-gold/10 px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <button onclick="toggleSidebar()" class="lg:hidden text-gold text-xl p-1">☰</button>
+          <div><h1 class="font-display text-xl text-parchment font-semibold">Experiences</h1><p class="font-classic text-parchment/30 text-xs tracking-wider">Manage local activities</p></div>
+        </div>
+      </header>
+      <div class="flex-1 p-6 lg:p-8">
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+            <!-- Add New Experience -->
+            <div class="xl:col-span-1">
+                <div class="admin-card rounded-lg p-6 sticky top-24">
+                    <h2 class="font-display text-xl text-gold mb-6 flex items-center gap-3"><span class="text-2xl">🌴</span> Add Experience</h2>
+                    
+                    <form id="experienceForm" class="space-y-4">
+                        <div>
+                            <label class="block text-parchment/60 font-classic tracking-wider text-xs uppercase mb-2">Title</label>
+                            <input type="text" id="titleInput" required class="w-full bg-woods border border-gold/20 rounded px-4 py-2 text-parchment focus:border-gold focus:outline-none" placeholder="e.g. Galle Fort Tour" />
+                        </div>
+                        
+                        <div>
+                            <label class="block text-parchment/60 font-classic tracking-wider text-xs uppercase mb-2">Description</label>
+                            <textarea id="descInput" required rows="3" class="w-full bg-woods border border-gold/20 rounded px-4 py-2 text-parchment focus:border-gold focus:outline-none" placeholder="Short description..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-parchment/60 font-classic tracking-wider text-xs uppercase mb-2">Cover Image *</label>
+                            <div class="border-2 border-dashed border-gold/20 rounded p-4 text-center hover:border-gold/50 transition-colors cursor-pointer relative overflow-hidden group bg-woods">
+                                <input type="file" id="imageInput" accept="image/*" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+                                <div class="text-parchment/40 group-hover:text-gold transition-colors">
+                                    <span class="text-2xl mb-2 block">📸</span>
+                                    <span class="font-classic text-sm" id="fileName">Click to browse or drag & drop</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="addBtn" class="w-full btn-gold-sm py-3 mt-4 text-sm">✦ Add Experience</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Experiences Grid -->
+            <div class="xl:col-span-2">
+                <div class="admin-card rounded-lg p-6 min-h-[500px]">
+                    <h2 class="font-display text-xl text-gold mb-6">Current Experiences</h2>
+                    <div id="experiencesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <p class="text-parchment/40 font-classic col-span-full">Loading experiences...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // Update filename display
+            document.getElementById('imageInput')?.addEventListener('change', function(e) {
+                const name = e.target.files[0]?.name;
+                if(name) document.getElementById('fileName').textContent = name;
+            });
+        </script>
+        <script type="module" src="../../assets/js/admin-experiences.js"></script>
+      </div>
+      <footer class="px-6 py-4 border-t border-gold/10 text-center"><p class="font-classic text-parchment/20 text-xs tracking-wider">&copy; 2026 Beekke Villa Admin Panel</p></footer>
+    </main>
+  </div>
+  <script>function toggleSidebar(){document.getElementById('sidebar').classList.toggle('-translate-x-full');document.getElementById('sidebarOverlay').classList.toggle('hidden');}</script>
+</body>
+</html>

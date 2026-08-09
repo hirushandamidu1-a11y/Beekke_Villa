@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookings — Beekke Villa Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          'woods':'#3E2723','woods-light':'#5D4037','woods-dark':'#1B0000',
+          'gold':'#D4AF37','gold-light':'#E8CC6A','gold-dark':'#A68B1E',
+          'parchment':'#FDF5E6','parchment-dark':'#F5E6C8','ink':'#2C1810'
+        },
+        fontFamily: {
+          display:['Playfair Display','Georgia','serif'],
+          body:['Lora','Georgia','serif'],
+          classic:['EB Garamond','Georgia','serif'],
+        }
+      }}
+    }
+  </script>
+  <style>
+    body { font-family: 'Lora', Georgia, serif; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #1B0000; }
+    ::-webkit-scrollbar-thumb { background: #A68B1E; border-radius: 3px; }
+    .sidebar-link { transition: all 0.3s ease; }
+    .sidebar-link:hover, .sidebar-link.active {
+      background: rgba(212,175,55,0.1);
+      border-right: 3px solid #D4AF37;
+      color: #D4AF37;
+    }
+    .sidebar-link.active { background: rgba(212,175,55,0.15); }
+    .admin-card {
+      background: rgba(253,245,230,0.04);
+      border: 1px solid rgba(212,175,55,0.15);
+      transition: all 0.3s ease;
+    }
+    .admin-card:hover {
+      border-color: rgba(212,175,55,0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .table-row { transition: background 0.2s ease; }
+    .table-row:hover { background: rgba(212,175,55,0.05); }
+    .badge { padding: 2px 10px; border-radius: 9999px; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'EB Garamond', Georgia, serif; }
+    .badge-pending  { background: rgba(234,179,8,0.15); color: #EAB308; border: 1px solid rgba(234,179,8,0.3); }
+    .badge-approved { background: rgba(34,197,94,0.15); color: #22C55E; border: 1px solid rgba(34,197,94,0.3); }
+    .badge-rejected { background: rgba(239,68,68,0.15); color: #EF4444; border: 1px solid rgba(239,68,68,0.3); }
+    .badge-cancelled { background: rgba(156,163,175,0.15); color: #9CA3AF; border: 1px solid rgba(156,163,175,0.3); }
+    .btn-sm {
+      padding: 6px 14px; border-radius: 4px; font-size: 0.7rem; font-family: 'EB Garamond', Georgia, serif;
+      letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.3s ease; cursor: pointer; border: none;
+    }
+    .btn-approve { background: rgba(34,197,94,0.15); color: #22C55E; border: 1px solid rgba(34,197,94,0.3); }
+    .btn-approve:hover { background: #22C55E; color: #1B0000; }
+    .btn-reject  { background: rgba(239,68,68,0.15); color: #EF4444; border: 1px solid rgba(239,68,68,0.3); }
+    .btn-reject:hover  { background: #EF4444; color: white; }
+    .btn-delete  { background: rgba(156,163,175,0.1); color: #9CA3AF; border: 1px solid rgba(156,163,175,0.2); }
+    .btn-delete:hover  { background: #EF4444; color: white; border-color: #EF4444; }
+    .btn-gold-sm {
+      background: linear-gradient(135deg, #E8CC6A, #D4AF37, #A68B1E);
+      color: #3E2723; font-weight: 600;
+    }
+    .btn-gold-sm:hover { box-shadow: 0 4px 16px rgba(212,175,55,0.4); transform: translateY(-1px); }
+  </style>
+</head>
+<body class="bg-woods-dark text-parchment min-h-screen">
+
+  <div class="flex min-h-screen">
+
+    <!-- ═══ SIDEBAR ═══ -->
+    <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-40 w-64 bg-woods-dark border-r border-gold/10 flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+
+      <!-- Logo -->
+      <div class="p-6 border-b border-gold/10">
+        <a href="../../index.html" target="_blank" class="block group">
+          <p class="font-display text-2xl font-bold text-gold tracking-widest group-hover:text-gold-light transition-colors">Beekke</p>
+          <p class="font-classic text-parchment/30 text-xs tracking-[0.4em] uppercase">Admin Panel</p>
+        </a>
+      </div>
+
+      <!-- Nav -->
+      <nav class="flex-1 py-6">
+        <a href="../index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60">
+          <span class="text-lg">📊</span><span>Dashboard</span>
+        </a>
+        <a href="index.html" class="sidebar-link active flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60">
+          <span class="text-lg">📅</span><span>Bookings</span>
+        </a>
+        <a href="../gallery/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60">
+          <span class="text-lg">🖼️</span><span>Gallery</span>
+        </a>
+        <a href="../experiences/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60">
+          <span class="text-lg">🌴</span><span>Experiences</span>
+        </a>
+        <a href="../testimonials/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60">
+          <span class="text-lg">💬</span><span>Testimonials</span>
+        </a>
+        <a href="../faqs/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60">
+          <span class="text-lg">❓</span><span>FAQs</span>
+        </a>
+        <a href="../settings/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60">
+          <span class="text-lg">⚙️</span><span>Settings</span>
+        </a>
+      </nav>
+
+      <!-- Admin info -->
+      <div class="p-6 border-t border-gold/10">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center text-gold font-display font-bold text-sm">A</div>
+          <div>
+            <p class="font-classic text-parchment text-sm">Administrator</p>
+            <p class="font-classic text-parchment/30 text-xs">Administrator</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Sidebar overlay (mobile) -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 z-30 hidden lg:hidden" onclick="toggleSidebar()"></div>
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <main class="flex-1 flex flex-col min-h-screen">
+
+      <!-- Top bar -->
+      <header class="sticky top-0 z-20 bg-woods-dark/95 backdrop-blur border-b border-gold/10 px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <button onclick="toggleSidebar()" class="lg:hidden text-gold text-xl p-1">☰</button>
+          <div>
+            <h1 class="font-display text-xl text-parchment font-semibold">Bookings</h1>
+            <p class="font-classic text-parchment/30 text-xs tracking-wider">Manage reservations</p>
+          </div>
+        </div>
+        <a href="../../index.html" target="_blank"
+           class="font-classic text-xs tracking-widest uppercase text-gold/60 hover:text-gold transition-colors hidden sm:block">
+          View Website →
+        </a>
+      </header>
+
+      <!-- Page Content -->
+      <div class="flex-1 p-6 lg:p-8">
+
+        <!-- Filters -->
+        <div class="flex flex-wrap gap-3 mb-6 items-center justify-between">
+          <div class="flex flex-wrap gap-2" id="statusFilters">
+            <button data-status="" class="filter-btn font-classic text-xs tracking-widest uppercase px-4 py-2 rounded border transition-all border-gold text-gold">All (<span id="count-all">0</span>)</button>
+            <button data-status="pending" class="filter-btn font-classic text-xs tracking-widest uppercase px-4 py-2 rounded border transition-all border-parchment/10 text-parchment/40 hover:border-gold/40 hover:text-parchment/70">Pending (<span id="count-pending">0</span>)</button>
+            <button data-status="approved" class="filter-btn font-classic text-xs tracking-widest uppercase px-4 py-2 rounded border transition-all border-parchment/10 text-parchment/40 hover:border-gold/40 hover:text-parchment/70">Approved (<span id="count-approved">0</span>)</button>
+            <button data-status="rejected" class="filter-btn font-classic text-xs tracking-widest uppercase px-4 py-2 rounded border transition-all border-parchment/10 text-parchment/40 hover:border-gold/40 hover:text-parchment/70">Rejected (<span id="count-rejected">0</span>)</button>
+            <button data-status="cancelled" class="filter-btn font-classic text-xs tracking-widest uppercase px-4 py-2 rounded border transition-all border-parchment/10 text-parchment/40 hover:border-gold/40 hover:text-parchment/70">Cancelled (<span id="count-cancelled">0</span>)</button>
+          </div>
+
+          <!-- Search -->
+          <form id="searchForm" class="flex gap-2" onsubmit="event.preventDefault();">
+            <input type="text" id="searchInput" placeholder="Search name, email..." class="bg-parchment/5 border border-gold/20 text-parchment rounded px-4 py-2 text-sm font-body focus:border-gold outline-none w-48" />
+            <button type="button" id="searchBtn" class="btn-sm btn-gold-sm">Search</button>
+          </form>
+        </div>
+
+        <!-- Table -->
+        <div class="admin-card rounded-lg overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead>
+                <tr class="border-b border-gold/10">
+                  <th class="px-4 py-3 text-left font-classic text-xs tracking-widest uppercase text-parchment/40">Ref</th>
+                  <th class="px-4 py-3 text-left font-classic text-xs tracking-widest uppercase text-parchment/40">Guest</th>
+                  <th class="px-4 py-3 text-left font-classic text-xs tracking-widest uppercase text-parchment/40 hidden md:table-cell">Phone</th>
+                  <th class="px-4 py-3 text-left font-classic text-xs tracking-widest uppercase text-parchment/40">Package</th>
+                  <th class="px-4 py-3 text-left font-classic text-xs tracking-widest uppercase text-parchment/40 hidden lg:table-cell">Dates</th>
+                  <th class="px-4 py-3 text-left font-classic text-xs tracking-widest uppercase text-parchment/40">Amount</th>
+                  <th class="px-4 py-3 text-left font-classic text-xs tracking-widest uppercase text-parchment/40">Status</th>
+                  <th class="px-4 py-3 text-center font-classic text-xs tracking-widest uppercase text-parchment/40">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="bookingsTableBody">
+                <tr><td colspan="8" class="px-4 py-16 text-center text-parchment/30 font-classic tracking-wider">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="px-4 py-3 border-t border-gold/10 text-right">
+            <span id="showingCount" class="font-classic text-parchment/30 text-xs tracking-wider">0 booking(s)</span>
+          </div>
+        </div>
+
+      </div><!-- end page content -->
+
+      <!-- Footer -->
+      <footer class="px-6 py-4 border-t border-gold/10 text-center">
+        <p class="font-classic text-parchment/20 text-xs tracking-wider">
+          &copy; 2026 Beekke Villa Admin Panel · v1.0.0
+        </p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script type="module" src="../../assets/js/admin-bookings.js"></script>
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>

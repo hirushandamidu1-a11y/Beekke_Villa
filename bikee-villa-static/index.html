@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bikee Villa - A Timeless Walawwa Experience in Galle</title>
+  <meta name="description" content="Bikee Villa is a historic colonial mansion in Galle, Sri Lanka. Book your exclusive stay or private event at this stunning traditional Walawwa." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'woods':    '#3E2723',
+            'woods-light': '#5D4037',
+            'woods-dark':  '#1B0000',
+            'gold':     '#D4AF37',
+            'gold-light': '#E8CC6A',
+            'gold-dark':  '#A68B1E',
+            'parchment': '#FDF5E6',
+            'parchment-dark': '#F5E6C8',
+            'ink':      '#2C1810',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Lora', 'Georgia', 'serif'],
+            classic: ['EB Garamond', 'Georgia', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Flatpickr Date Picker -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="assets/images/gallery/exterior.jpg" type="image/jpeg" />
+</head>
+<body class="bg-parchment font-body text-ink antialiased">
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-6">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#home" class="flex flex-col leading-none group">
+      <span class="font-display text-2xl font-bold text-gold tracking-widest group-hover:text-gold-light transition-colors">Beekke</span>
+      <span class="font-classic text-xs text-parchment tracking-[0.4em] uppercase opacity-80">Villa · Galle</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden lg:flex items-center gap-8">
+            <li>
+        <a href="#home"
+           class="nav-link font-classic text-sm tracking-widest uppercase text-parchment hover:text-gold transition-colors duration-300
+                  ">
+          Home        </a>
+      </li>
+            <li>
+        <a href="#about"
+           class="nav-link font-classic text-sm tracking-widest uppercase text-parchment hover:text-gold transition-colors duration-300
+                  ">
+          About        </a>
+      </li>
+            <li>
+        <a href="#rooms"
+           class="nav-link font-classic text-sm tracking-widest uppercase text-parchment hover:text-gold transition-colors duration-300
+                  ">
+          Rooms        </a>
+      </li>
+            <li>
+        <a href="#gallery"
+           class="nav-link font-classic text-sm tracking-widest uppercase text-parchment hover:text-gold transition-colors duration-300
+                  ">
+          Gallery        </a>
+      </li>
+            <li>
+        <a href="#location"
+           class="nav-link font-classic text-sm tracking-widest uppercase text-parchment hover:text-gold transition-colors duration-300
+                  ">
+          Location        </a>
+      </li>
+            <li>
+        <a href="#booking"
+           class="nav-link font-classic text-sm tracking-widest uppercase text-parchment hover:text-gold transition-colors duration-300
+                  border border-gold text-gold px-4 py-2 hover:bg-gold hover:text-woods rounded-sm">
+          Book Now        </a>
+      </li>
+          </ul>
+
+    <!-- Hamburger -->
+    <button id="menuBtn" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="Open menu">
+      <span class="hamburger-line block w-6 h-0.5 bg-gold transition-all duration-300"></span>
+      <span class="hamburger-line block w-6 h-0.5 bg-gold transition-all duration-300"></span>
+      <span class="hamburger-line block w-4 h-0.5 bg-gold transition-all duration-300"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobileMenu" class="fixed inset-0 bg-woods-dark/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col justify-center items-center">
+    <ul class="flex flex-col items-center gap-6 py-4 w-full">
+            <li class="w-full text-center">
+        <a href="#home" class="mobile-nav-link block w-full py-4 font-classic tracking-[0.2em] text-2xl uppercase text-parchment hover:text-gold transition-all">
+          Home        </a>
+      </li>
+            <li class="w-full text-center">
+        <a href="#about" class="mobile-nav-link block w-full py-4 font-classic tracking-[0.2em] text-2xl uppercase text-parchment hover:text-gold transition-all">
+          About        </a>
+      </li>
+            <li class="w-full text-center">
+        <a href="#rooms" class="mobile-nav-link block w-full py-4 font-classic tracking-[0.2em] text-2xl uppercase text-parchment hover:text-gold transition-all">
+          Rooms        </a>
+      </li>
+            <li class="w-full text-center">
+        <a href="#gallery" class="mobile-nav-link block w-full py-4 font-classic tracking-[0.2em] text-2xl uppercase text-parchment hover:text-gold transition-all">
+          Gallery        </a>
+      </li>
+            <li class="w-full text-center">
+        <a href="#location" class="mobile-nav-link block w-full py-4 font-classic tracking-[0.2em] text-2xl uppercase text-parchment hover:text-gold transition-all">
+          Location        </a>
+      </li>
+            <li class="w-full text-center">
+        <a href="#booking" class="mobile-nav-link block w-full py-4 font-classic tracking-[0.2em] text-2xl uppercase text-parchment hover:text-gold transition-all">
+          Book Now        </a>
+      </li>
+          </ul>
+    
+    <!-- Mobile Contact Quick Links -->
+    <div class="absolute bottom-24 flex gap-6">
+      <a href="https://wa.me/94779493059" class="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-woods transition-colors">
+        <svg class="w-6 h-6 fill-currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.128.552 4.195 1.6 6.012L.48 24l6.113-1.597A11.966 11.966 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.03S18.676 0 12.031 0zm0 21.996c-1.802 0-3.564-.482-5.111-1.393l-.366-.215-3.799.992.997-3.69-.236-.376A9.972 9.972 0 012.035 12.03c0-5.523 4.478-10.001 10.001-10.001 5.522 0 10.001 4.478 10.001 10.001 0 5.522-4.479 10.001-10.001 10.001zm5.553-7.585c-.304-.152-1.799-.887-2.077-.988-.278-.101-.481-.152-.684.152-.202.304-.784.988-.962 1.191-.177.202-.355.228-.658.076-.304-.152-1.285-.473-2.449-1.516-.906-.811-1.517-1.815-1.694-2.119-.177-.304-.019-.468.133-.62.137-.137.304-.355.456-.532.152-.178.203-.304.304-.507.101-.203.051-.38-.025-.532-.076-.152-.684-1.649-.937-2.257-.247-.594-.497-.514-.684-.523-.177-.008-.38-.008-.582-.008s-.532.076-.811.38c-.278.304-1.064 1.039-1.064 2.534 0 1.495 1.089 2.94 1.241 3.142.152.203 2.143 3.271 5.192 4.587.725.313 1.291.501 1.732.641.728.23 1.391.197 1.916.12.587-.089 1.802-.736 2.055-1.445.253-.709.253-1.318.177-1.445-.076-.127-.279-.203-.583-.355z"/></svg>
+      </a>
+      <a href="tel:+077-9493059" class="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-woods transition-colors">
+        <svg class="w-6 h-6 fill-currentColor" viewBox="0 0 24 24"><path d="M20 22.621l-3.521-6.795c-.007.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.082-1.026-3.492-6.817-2.106 1.039C.367 3.96-3.766 18.257 17.893 23.66l2.107-1.039z"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+<!-- ═══════════════════════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════════════════════ -->
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+  <!-- Parallax Background image -->
+  <div class="absolute inset-0 bg-cover bg-center bg-fixed"
+       style="background-image: url('assets/images/gallery/exterior.jpg')"></div>
+
+  <!-- Multi-layer overlay for vintage elegance & readability -->
+  <div class="absolute inset-0 bg-woods/40 mix-blend-multiply"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-woods-dark/80 via-woods-dark/30 to-woods-dark/95"></div>
+
+  <!-- Decorative corner ornaments -->
+  <div class="absolute top-8 left-8 w-16 h-16 border-l-2 border-t-2 border-gold/40 hidden md:block"></div>
+  <div class="absolute top-8 right-8 w-16 h-16 border-r-2 border-t-2 border-gold/40 hidden md:block"></div>
+  <div class="absolute bottom-8 left-8 w-16 h-16 border-l-2 border-b-2 border-gold/40 hidden md:block"></div>
+  <div class="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 border-gold/40 hidden md:block"></div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 text-center px-6 max-w-5xl mx-auto hero-content pt-24 md:pt-0">
+
+    <!-- Pre-heading ornament -->
+    <div class="flex items-center justify-center gap-4 mb-6 fade-in-up" style="animation-delay:0.2s">
+      <div class="h-px w-16 bg-gold/60"></div>
+      <span class="font-classic text-gold tracking-[0.5em] text-xs uppercase">Est. in Galle, Sri Lanka</span>
+      <div class="h-px w-16 bg-gold/60"></div>
+    </div>
+
+    <h1 class="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-parchment leading-tight mb-4 md:mb-6 fade-in-up" style="animation-delay:0.4s">
+      Beekke Villa<br />
+      <span class="text-gold italic">– Galle –</span>
+    </h1>
+
+    <p class="font-display text-gold-light text-xl sm:text-2xl md:text-3xl italic mb-4 fade-in-up" style="animation-delay:0.5s">
+      "Where Colonial Heritage Meets Serene Waters."
+    </p>
+
+    <p class="font-body text-parchment/80 text-base md:text-lg lg:text-xl max-w-3xl mx-auto mb-8 md:mb-10 leading-relaxed fade-in-up" style="animation-delay:0.6s">
+      An exclusive heritage walauwa retreat overlooking the peaceful Beekke Tank in Galle, Sri Lanka.
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center fade-in-up" style="animation-delay:0.8s">
+      <a href="#booking" class="btn-gold group relative overflow-hidden px-10 py-4 font-classic tracking-widest text-sm uppercase text-woods font-semibold rounded-sm text-center">
+        <span class="relative z-10">✦ Check Availability</span>
+      </a>
+      <a href="#gallery" class="px-10 py-4 font-classic tracking-widest text-sm uppercase text-gold border border-gold/60 rounded-sm hover:bg-gold/10 transition-all duration-300 text-center">
+        View Gallery →
+      </a>
+    </div>
+
+    <!-- Quick stats -->
+    <div class="grid grid-cols-3 gap-2 sm:gap-10 md:gap-16 mt-12 md:mt-16 pt-8 border-t border-parchment/10 fade-in-up" style="animation-delay:1s">
+      <div class="text-center">
+        <p class="font-display text-2xl sm:text-3xl font-bold text-gold">5</p>
+        <p class="font-classic text-[10px] sm:text-xs text-parchment/60 tracking-widest uppercase mt-1">Rooms</p>
+      </div>
+      <div class="text-center">
+        <p class="font-display text-2xl sm:text-3xl font-bold text-gold">12</p>
+        <p class="font-classic text-[10px] sm:text-xs text-parchment/60 tracking-widest uppercase mt-1">Max Guests</p>
+      </div>
+      <div class="text-center">
+        <p class="font-display text-2xl sm:text-3xl font-bold text-gold">100+</p>
+        <p class="font-classic text-[10px] sm:text-xs text-parchment/60 tracking-widest uppercase mt-1">Years Heritage</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-parchment/40 fade-in-up" style="animation-delay:1.2s">
+    <span class="font-classic text-xs tracking-widest uppercase">Scroll</span>
+    <div class="w-px h-12 bg-gradient-to-b from-parchment/40 to-transparent scroll-line"></div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════
+     ABOUT SECTION
+════════════════════════════════════════════════════════════ -->
+<section id="about" class="py-16 md:py-28 bg-parchment relative overflow-hidden">
+  <!-- Decorative background text -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12rem] font-display font-black text-woods/[0.03] whitespace-nowrap select-none pointer-events-none">
+    WALAWWA
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Section label -->
+    <div class="flex items-center gap-4 mb-4 reveal">
+      <div class="h-px w-12 bg-gold"></div>
+      <span class="font-classic text-gold text-xs tracking-[0.4em] uppercase">Our Heritage</span>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Text -->
+      <div class="reveal">
+        <h2 class="font-display text-5xl md:text-6xl font-bold text-woods leading-tight mb-8">
+          Step Back in Time,<br /><span class="text-gold italic">Surrounded by Nature</span>
+        </h2>
+        <p class="font-body text-woods-light leading-relaxed mb-6 text-lg">
+          Nestled beside the tranquil waters of the historic Beekke Tank, Beekke Villa offers an authentic slice of Sri Lanka’s rich colonial heritage. A meticulously preserved traditional Walauwa, our villa blends timeless antique architecture—ornate wooden pillars, high wooden ceilings, and sprawling verandahs—with modern luxury and warm island hospitality.
+        </p>
+        <p class="font-body text-woods-light leading-relaxed mb-8">
+          Whether you seek a peaceful escape from the hustle of the city, a romantic getaway, or a unique cultural experience just minutes away from the iconic Galle Fort, Beekke Villa welcomes you to unwind, refresh, and reconnect with nature.
+        </p>
+
+        <!-- Feature list -->
+        <ul class="space-y-3 mb-10">
+                    <li class="flex items-start gap-3 font-body text-woods-light">
+            <span class="text-gold mt-1 flex-shrink-0">✦</span>
+            <span>Authentic colonial architecture with original archways</span>
+          </li>
+                    <li class="flex items-start gap-3 font-body text-woods-light">
+            <span class="text-gold mt-1 flex-shrink-0">✦</span>
+            <span>Antique teak furniture &amp; heritage décor throughout</span>
+          </li>
+                    <li class="flex items-start gap-3 font-body text-woods-light">
+            <span class="text-gold mt-1 flex-shrink-0">✦</span>
+            <span>5-minute drive to Galle Fort &amp; Unawatuna Beach</span>
+          </li>
+                    <li class="flex items-start gap-3 font-body text-woods-light">
+            <span class="text-gold mt-1 flex-shrink-0">✦</span>
+            <span>Fully equipped kitchen &amp; spacious dining hall</span>
+          </li>
+                    <li class="flex items-start gap-3 font-body text-woods-light">
+            <span class="text-gold mt-1 flex-shrink-0">✦</span>
+            <span>Private compound with tropical garden &amp; parking</span>
+          </li>
+                  </ul>
+
+        <a href="#booking" class="btn-gold inline-block px-8 py-3 font-classic text-sm tracking-widest uppercase text-woods font-semibold rounded-sm">
+          Plan Your Stay →
+        </a>
+      </div>
+
+      <!-- Image collage -->
+      <div class="reveal relative">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="col-span-2 aspect-[16/9] overflow-hidden rounded-sm shadow-2xl">
+            <img src="assets/images/gallery/archway.jpg" alt="Grand colonial archway"
+                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="aspect-square overflow-hidden rounded-sm shadow-xl">
+            <img src="assets/images/gallery/lounge.jpg" alt="Antique lounge"
+                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="aspect-square overflow-hidden rounded-sm shadow-xl">
+            <img src="assets/images/gallery/dining.jpg" alt="Dining hall"
+                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+          </div>
+        </div>
+        <!-- Gold accent card -->
+        <div class="absolute -bottom-6 -left-6 bg-gold p-6 rounded-sm shadow-2xl hidden md:block">
+          <p class="font-display text-woods text-3xl font-black">Galle</p>
+          <p class="font-classic text-woods/70 text-xs tracking-widest uppercase">Southern Sri Lanka</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Amenities Section -->
+<section id="amenities" class="py-12 md:py-20 bg-stone-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-5xl font-serif text-colonial-900 mb-4">Villa Amenities</h2>
+            <div class="w-24 h-1 bg-colonial-500 mx-auto mb-6"></div>
+            <p class="text-colonial-700 max-w-2xl mx-auto text-lg">
+                Experience comfort and tranquility with our carefully curated facilities designed for your perfect getaway.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Air Conditioning -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-colonial-100 text-center hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-16 h-16 mx-auto bg-colonial-50 rounded-full flex items-center justify-center mb-4 text-colonial-600">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.514a2 2 0 01.485.06l4.017 1.041"></path></svg>
+                </div>
+                <h3 class="font-serif text-lg text-colonial-900 font-semibold mb-2">Air Conditioning</h3>
+                <p class="text-sm text-colonial-600">Fully air-conditioned rooms for your comfort</p>
+            </div>
+
+            <!-- Free WiFi -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-colonial-100 text-center hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 mx-auto bg-colonial-50 rounded-full flex items-center justify-center mb-4 text-colonial-600">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path></svg>
+                </div>
+                <h3 class="font-serif text-lg text-colonial-900 font-semibold mb-2">Free Wi-Fi</h3>
+                <p class="text-sm text-colonial-600">High-speed internet access throughout the villa</p>
+            </div>
+
+            <!-- Large Garden -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-colonial-100 text-center hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-16 h-16 mx-auto bg-colonial-50 rounded-full flex items-center justify-center mb-4 text-colonial-600">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                </div>
+                <h3 class="font-serif text-lg text-colonial-900 font-semibold mb-2">Spacious Garden</h3>
+                <p class="text-sm text-colonial-600">Large, lush green garden ideal for relaxation</p>
+            </div>
+
+            <!-- Private Parking -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-colonial-100 text-center hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="400">
+                <div class="w-16 h-16 mx-auto bg-colonial-50 rounded-full flex items-center justify-center mb-4 text-colonial-600">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+                </div>
+                <h3 class="font-serif text-lg text-colonial-900 font-semibold mb-2">Private Parking</h3>
+                <p class="text-sm text-colonial-600">Secure on-site parking for your vehicles</p>
+            </div>
+            
+            <!-- Hot Water -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-colonial-100 text-center hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="500">
+                <div class="w-16 h-16 mx-auto bg-colonial-50 rounded-full flex items-center justify-center mb-4 text-colonial-600">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"></path></svg>
+                </div>
+                <h3 class="font-serif text-lg text-colonial-900 font-semibold mb-2">Hot Water</h3>
+                <p class="text-sm text-colonial-600">24/7 hot water supply in all bathrooms</p>
+            </div>
+            
+             <!-- Kitchen -->
+             <div class="bg-white p-8 rounded-xl shadow-sm border border-colonial-100 text-center hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="600">
+                <div class="w-16 h-16 mx-auto bg-colonial-50 rounded-full flex items-center justify-center mb-4 text-colonial-600">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                </div>
+                <h3 class="font-serif text-lg text-colonial-900 font-semibold mb-2">Equipped Kitchen</h3>
+                <p class="text-sm text-colonial-600">Access to a fully equipped modern kitchen</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════
+     THE EXPERIENCE (UNIQUE VALUES)
+════════════════════════════════════════════════════════════ -->
+<section id="experience" class="py-16 md:py-28 bg-parchment-dark relative overflow-hidden border-t border-woods/10">
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 reveal">
+      <div class="flex items-center justify-center gap-4 mb-4">
+        <div class="h-px w-12 bg-gold"></div>
+        <span class="font-classic text-gold text-xs tracking-[0.4em] uppercase">Why Stay With Us</span>
+        <div class="h-px w-12 bg-gold"></div>
+      </div>
+      <h2 class="font-display text-5xl md:text-6xl font-bold text-woods mb-6">
+        The Beekke <span class="text-gold italic">Experience</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 reveal">
+      <!-- Feature 1 -->
+      <div class="bg-parchment p-6 sm:p-8 rounded-sm border border-gold/20 hover:border-gold/60 transition-colors shadow-sm hover:shadow-lg group text-center sm:text-left">
+        <div class="text-gold text-4xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform sm:origin-left inline-block sm:block">🏛️</div>
+        <h3 class="font-display text-lg sm:text-xl text-woods font-semibold mb-3">Authentic Colonial Architecture</h3>
+        <p class="font-body text-woods-light text-sm leading-relaxed">
+          Experience a true Sri Lankan heritage Walauwa. Features old wooden pillars, traditional roof lines, antique furniture, and courtyards that offer a historic experience beyond modern hotels.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="bg-parchment p-6 sm:p-8 rounded-sm border border-gold/20 hover:border-gold/60 transition-colors shadow-sm hover:shadow-lg group text-center sm:text-left">
+        <div class="text-gold text-4xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform sm:origin-left inline-block sm:block">🌅</div>
+        <h3 class="font-display text-lg sm:text-xl text-woods font-semibold mb-3">Prime Location by Beekke Tank</h3>
+        <p class="font-body text-woods-light text-sm leading-relaxed">
+          Located right beside a serene lake/tank. Enjoy natural breezes, stunning sunset views, bird watching, and a peaceful environment ideal for nature lovers.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="bg-parchment p-6 sm:p-8 rounded-sm border border-gold/20 hover:border-gold/60 transition-colors shadow-sm hover:shadow-lg group text-center sm:text-left">
+        <div class="text-gold text-4xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform sm:origin-left inline-block sm:block">🗺️</div>
+        <h3 class="font-display text-lg sm:text-xl text-woods font-semibold mb-3">Strategic Location</h3>
+        <p class="font-body text-woods-light text-sm leading-relaxed">
+          Easily accessible to Galle Fort, Unawatuna Beach, and the Southern Expressway, while maintaining a calm environment away from the traffic and noise of the city center.
+        </p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="bg-parchment p-6 sm:p-8 rounded-sm border border-gold/20 hover:border-gold/60 transition-colors shadow-sm hover:shadow-lg group text-center sm:text-left">
+        <div class="text-gold text-4xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform sm:origin-left inline-block sm:block">🥂</div>
+        <h3 class="font-display text-lg sm:text-xl text-woods font-semibold mb-3">Exclusive Privacy</h3>
+        <p class="font-body text-woods-light text-sm leading-relaxed">
+          Not a large commercial hotel, but a highly private boutique villa experience. Perfect for tailored hospitality, private family events, staycations, and photo shoots.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════
+     ROOMS & PRICING
+════════════════════════════════════════════════════════════ -->
+<section id="rooms" class="py-16 md:py-28 bg-woods relative overflow-hidden">
+  <!-- Texture overlay -->
+  <div class="absolute inset-0 opacity-5"
+       style="background-image: url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative">
+    <!-- Heading -->
+    <div class="text-center mb-16 reveal">
+      <div class="flex items-center justify-center gap-4 mb-4">
+        <div class="h-px w-12 bg-gold/60"></div>
+        <span class="font-classic text-gold text-xs tracking-[0.4em] uppercase">Accommodation</span>
+        <div class="h-px w-12 bg-gold/60"></div>
+      </div>
+      <h2 class="font-display text-5xl md:text-6xl font-bold text-parchment mb-6">
+        Rooms & <span class="text-gold italic">Packages</span>
+      </h2>
+      <p class="font-body text-parchment/70 max-w-2xl mx-auto text-lg">
+        Beekke Villa accommodates up to <strong class="text-gold">12 guests</strong> across
+        <strong class="text-gold">5 beautifully appointed rooms</strong> — ideal for family gatherings,
+        private events, and intimate retreats.
+      </p>
+    </div>
+
+    <!-- Room config badge -->
+    <div class="flex flex-wrap justify-center gap-4 mb-8 reveal">
+      <span class="bg-gold/10 border border-gold/30 text-gold font-classic text-sm tracking-widest px-6 py-2 rounded-full">
+        🛏 3 Rooms · 3 Beds Each
+      </span>
+      <span class="bg-gold/10 border border-gold/30 text-gold font-classic text-sm tracking-widest px-6 py-2 rounded-full">
+        🛏 2 Rooms · Single Beds
+      </span>
+      <span class="bg-gold/10 border border-gold/30 text-gold font-classic text-sm tracking-widest px-6 py-2 rounded-full">
+        👥 Max Capacity: 12 Guests
+      </span>
+    </div>
+
+    <!-- Direct Booking Perk -->
+    <div class="max-w-2xl mx-auto bg-parchment/10 border border-gold/40 rounded-sm p-4 text-center mb-10 reveal">
+      <p class="font-classic text-gold-light text-sm tracking-widest uppercase mb-1">Book Direct With Us</p>
+      <p class="font-body text-parchment/80 text-sm">
+        Enjoy a <span class="text-gold font-semibold">Complimentary Traditional Evening Tea</span> on our verandah when you book directly through our website or WhatsApp.
+      </p>
+    </div>
+
+    <!-- Swipe Indicator (Mobile Only) -->
+    <div class="md:hidden flex items-center justify-end gap-2 mb-3 pr-2 reveal">
+      <span class="font-classic text-gold-light text-[10px] tracking-widest uppercase opacity-80">Swipe</span>
+      <svg class="w-5 h-5 text-gold swipe-hint-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="flex overflow-x-auto snap-x snap-mandatory hide-scroll md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 reveal pb-4">
+
+      <!-- Card: Family Non-AC -->
+      <div class="pricing-card w-[85vw] flex-shrink-0 snap-center md:w-auto bg-parchment/5 border border-gold/20 rounded-sm p-8 hover:border-gold/60 hover:bg-parchment/10 transition-all duration-500 group">
+        <div class="text-gold text-3xl mb-4">🏡</div>
+        <h3 class="font-display text-xl text-parchment font-semibold mb-2">Family / Event Package</h3>
+        <p class="font-classic text-parchment/50 text-xs tracking-widest uppercase mb-6">Non-Air Conditioned · 1 Day</p>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="font-display text-4xl font-bold text-gold">
+            25,000          </span>
+          <span class="font-classic text-parchment/50 text-sm">LKR / day</span>
+        </div>
+        <ul class="space-y-2 mb-8 font-body text-parchment/70 text-sm">
+          <li class="flex gap-2"><span class="text-gold">✦</span> Exclusive villa access</li>
+          <li class="flex gap-2"><span class="text-gold">✦</span> All 5 rooms</li>
+          <li class="flex gap-2"><span class="text-gold">✦</span> Up to 12 guests</li>
+          <li class="flex gap-2"><span class="text-gold">✦</span> Kitchen access</li>
+        </ul>
+        <a href="#booking" class="block text-center border border-gold/40 text-gold font-classic text-xs tracking-widest uppercase py-3 rounded-sm group-hover:bg-gold group-hover:text-woods transition-all duration-300">
+          Book This Package
+        </a>
+      </div>
+
+      <!-- Card: Family AC (Featured) -->
+      <div class="pricing-card-featured w-[85vw] flex-shrink-0 snap-center md:w-auto relative bg-gradient-to-b from-gold to-gold-dark rounded-sm p-8 shadow-2xl transform scale-105">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-woods text-gold font-classic text-xs tracking-widest uppercase px-4 py-1 rounded-full border border-gold/30">
+          Most Popular
+        </div>
+        <div class="text-woods text-3xl mb-4">❄️</div>
+        <h3 class="font-display text-xl text-woods font-semibold mb-2">Family / Event Package</h3>
+        <p class="font-classic text-woods/60 text-xs tracking-widest uppercase mb-6">Air Conditioned · 1 Day</p>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="font-display text-4xl font-bold text-woods">
+            30,000          </span>
+          <span class="font-classic text-woods/60 text-sm">LKR / day</span>
+        </div>
+        <ul class="space-y-2 mb-8 font-body text-woods text-sm">
+          <li class="flex gap-2"><span class="text-woods/60">✦</span> Exclusive villa access</li>
+          <li class="flex gap-2"><span class="text-woods/60">✦</span> All 5 rooms with AC</li>
+          <li class="flex gap-2"><span class="text-woods/60">✦</span> Up to 12 guests</li>
+          <li class="flex gap-2"><span class="text-woods/60">✦</span> Kitchen access</li>
+        </ul>
+        <a href="#booking" class="block text-center bg-woods text-gold font-classic text-xs tracking-widest uppercase py-3 rounded-sm hover:bg-woods-dark transition-all duration-300">
+          Book This Package
+        </a>
+      </div>
+
+      <!-- Card: Suite/Function -->
+      <div class="pricing-card w-[85vw] flex-shrink-0 snap-center md:w-auto bg-parchment/5 border border-gold/20 rounded-sm p-8 hover:border-gold/60 hover:bg-parchment/10 transition-all duration-500 group">
+        <div class="text-gold text-3xl mb-4">🎭</div>
+        <h3 class="font-display text-xl text-parchment font-semibold mb-2">Suite / Function Package</h3>
+        <p class="font-classic text-parchment/50 text-xs tracking-widest uppercase mb-6">Events &amp; Functions</p>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="font-display text-4xl font-bold text-gold">
+            7,500          </span>
+          <span class="font-classic text-parchment/50 text-sm">LKR / day</span>
+        </div>
+        <ul class="space-y-2 mb-8 font-body text-parchment/70 text-sm">
+          <li class="flex gap-2"><span class="text-gold">✦</span> Suite room access</li>
+          <li class="flex gap-2"><span class="text-gold">✦</span> Function hall</li>
+          <li class="flex gap-2"><span class="text-gold">✦</span> Ideal for events</li>
+          <li class="flex gap-2"><span class="text-gold">✦</span> Flexible arrangements</li>
+        </ul>
+        <a href="#booking" class="block text-center border border-gold/40 text-gold font-classic text-xs tracking-widest uppercase py-3 rounded-sm group-hover:bg-gold group-hover:text-woods transition-all duration-300">
+          Book This Package
+        </a>
+      </div>
+    </div>
+
+    <!-- Cook packages -->
+    <div class="flex overflow-x-auto snap-x snap-mandatory hide-scroll md:grid md:grid-cols-2 gap-6 reveal pb-4">
+      <div class="pricing-card w-[85vw] flex-shrink-0 snap-center md:w-auto bg-parchment/5 border border-gold/20 rounded-sm p-6 hover:border-gold/60 transition-all duration-500 group flex flex-col md:flex-row items-start md:items-center gap-6">
+        <div class="text-4xl flex-shrink-0">👨‍🍳</div>
+        <div class="flex-1">
+          <h3 class="font-display text-lg text-parchment font-semibold">With Cook · Non-AC</h3>
+          <p class="font-classic text-parchment/50 text-xs tracking-widest uppercase mb-2">Full catering included</p>
+          <span class="font-display text-2xl font-bold text-gold">30,000 <span class="font-classic text-sm text-parchment/50">LKR/day</span></span>
+        </div>
+        <a href="#booking" class="flex-shrink-0 border border-gold/40 text-gold font-classic text-xs tracking-widest uppercase px-4 py-2 rounded-sm group-hover:bg-gold group-hover:text-woods transition-all duration-300">
+          Book
+        </a>
+      </div>
+      <div class="pricing-card w-[85vw] flex-shrink-0 snap-center md:w-auto bg-parchment/5 border border-gold/20 rounded-sm p-6 hover:border-gold/60 transition-all duration-500 group flex flex-col md:flex-row items-start md:items-center gap-6">
+        <div class="text-4xl flex-shrink-0">👨‍🍳</div>
+        <div class="flex-1">
+          <h3 class="font-display text-lg text-parchment font-semibold">With Cook · AC</h3>
+          <p class="font-classic text-parchment/50 text-xs tracking-widest uppercase mb-2">Full catering + AC</p>
+          <span class="font-display text-2xl font-bold text-gold">35,000 <span class="font-classic text-sm text-parchment/50">LKR/day</span></span>
+        </div>
+        <a href="#booking" class="flex-shrink-0 border border-gold/40 text-gold font-classic text-xs tracking-widest uppercase px-4 py-2 rounded-sm group-hover:bg-gold group-hover:text-woods transition-all duration-300">
+          Book
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Dining Section -->
+<section id="dining" class="py-12 md:py-20 bg-white overflow-hidden">
+    <div class="container mx-auto px-4 md:px-6 max-w-7xl">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+            
+            <!-- Image Side -->
+            <div class="w-full lg:w-1/2 relative" data-aos="fade-right">
+                <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative z-10">
+                    <!-- We'll use a placeholder from unsplash or existing image -->
+                    <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=2070&auto=format&fit=crop" alt="Sri Lankan Cuisine" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                </div>
+                <!-- Decorative element -->
+                <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-colonial-100 rounded-full z-0"></div>
+                <div class="absolute -top-6 -left-6 w-32 h-32 bg-colonial-50 rounded-full z-0"></div>
+            </div>
+
+            <!-- Content Side -->
+            <div class="w-full lg:w-1/2" data-aos="fade-left">
+                <span class="text-colonial-600 font-semibold tracking-wider uppercase text-sm mb-2 block">Culinary Experience</span>
+                <h2 class="text-3xl md:text-5xl font-serif text-colonial-900 mb-6">Authentic Sri Lankan Flavors</h2>
+                <div class="w-16 h-1 bg-colonial-500 mb-6"></div>
+                
+                <p class="text-colonial-700 text-lg mb-6 leading-relaxed">
+                    Delight your taste buds with our authentic culinary offerings. Whether you prefer a hearty traditional Sri Lankan breakfast or a customized dinner under the stars, our dining experience is tailored to your preferences.
+                </p>
+
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-colonial-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-colonial-800">Fresh, locally sourced ingredients</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-colonial-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-colonial-800">Al fresco dining in the spacious garden</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-colonial-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-colonial-800">Customized menus upon request</span>
+                    </li>
+                </ul>
+
+                <a href="#contact" class="inline-block bg-colonial-900 text-white px-8 py-4 text-sm tracking-widest uppercase hover:bg-colonial-800 transition-colors duration-300">
+                    Request a Menu
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!-- Experiences Section -->
+<section id="experiences" class="py-12 md:py-20 bg-colonial-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-7xl">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="text-colonial-600 font-semibold tracking-wider uppercase text-sm mb-2 block">Explore The Surroundings</span>
+            <h2 class="text-3xl md:text-5xl font-serif text-colonial-900 mb-4">Local Experiences</h2>
+            <div class="w-24 h-1 bg-colonial-500 mx-auto mb-6"></div>
+        </div>
+        <div class="flex items-center justify-between gap-4 mb-8">
+            <p class="text-colonial-600 max-w-2xl font-body" data-aos="fade-up" data-aos-delay="100">
+                Immerse yourself in the vibrant culture and natural beauty of southern Sri Lanka. 
+                Whether you want to explore heritage sites or catch some waves, Beekke Willa is your ideal base.
+            </p>
+            <!-- Swipe Indicator (Mobile Only) -->
+            <div class="md:hidden flex items-center justify-end gap-2 pr-2">
+              <span class="font-classic text-colonial-600 text-[10px] tracking-widest uppercase opacity-80">Swipe</span>
+              <svg class="w-5 h-5 text-gold swipe-hint-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </div>
+        </div>
+
+        <div class="flex overflow-x-auto snap-x snap-mandatory hide-scroll md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 pb-4">
+            
+                        <!-- Fallback: Galle Fort -->
+            <div class="w-[85vw] flex-shrink-0 snap-center md:w-auto group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1586523916298-b80c3c86121b?q=80&w=2070&auto=format&fit=crop" alt="Galle Fort" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-6">
+                        <span class="bg-colonial-500 text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Heritage</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-serif text-colonial-900 font-bold mb-2">Galle Dutch Fort</h3>
+                    <p class="text-colonial-600 text-sm mb-4">Explore the UNESCO World Heritage site, walk along the ramparts, and discover charming cafes and boutiques in this 17th-century fort.</p>
+                </div>
+            </div>
+
+            <!-- Fallback: Surfing -->
+            <div class="w-[85vw] flex-shrink-0 snap-center md:w-auto group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=2070&auto=format&fit=crop" alt="Surfing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-6">
+                        <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Adventure</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-serif text-colonial-900 font-bold mb-2">Surfing & Beaches</h3>
+                    <p class="text-colonial-600 text-sm mb-4">Hit the waves at nearby famous surf breaks or simply relax on the pristine sandy beaches of Unawatuna and Dewata.</p>
+                </div>
+            </div>
+
+            <!-- Fallback: Boat Rides -->
+            <div class="w-[85vw] flex-shrink-0 snap-center md:w-auto group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1590412154483-3f139d67b2d5?q=80&w=2070&auto=format&fit=crop" alt="Boat Rides" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-6">
+                        <span class="bg-teal-500 text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Nature</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-serif text-colonial-900 font-bold mb-2">River Safari & Boat Rides</h3>
+                    <p class="text-colonial-600 text-sm mb-4">Take a scenic boat ride along the Madu River or Koggala lake to witness exotic birds, mangroves, and traditional cinnamon harvesting.</p>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════
+     GALLERY
+════════════════════════════════════════════════════════════ -->
+<section id="gallery" class="py-16 md:py-28 bg-parchment-dark relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Heading -->
+    <div class="text-center mb-16 reveal">
+      <div class="flex items-center justify-center gap-4 mb-4">
+        <div class="h-px w-12 bg-gold"></div>
+        <span class="font-classic text-gold text-xs tracking-[0.4em] uppercase">A Visual Journey</span>
+        <div class="h-px w-12 bg-gold"></div>
+      </div>
+      <h2 class="font-display text-5xl md:text-6xl font-bold text-woods mb-4">
+        The Villa <span class="text-gold italic">Gallery</span>
+      </h2>
+      <p class="font-body text-woods-light max-w-xl mx-auto">
+        Every corner of Beekke Villa tells a story. Explore the heritage interiors, lush surroundings, and timeless architecture.
+      </p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="flex flex-wrap justify-center gap-3 mb-10 reveal" id="galleryFilters">
+            <button data-filter="all"
+              class="gallery-filter font-body text-sm font-medium px-6 py-2.5 rounded-full shadow-sm transition-all duration-300
+                     bg-woods-dark text-parchment shadow-md shadow-woods-dark/20">
+        All      </button>
+            <button data-filter="exterior"
+              class="gallery-filter font-body text-sm font-medium px-6 py-2.5 rounded-full shadow-sm transition-all duration-300
+                     bg-white text-woods-light hover:bg-parchment hover:shadow-md">
+        Exterior      </button>
+            <button data-filter="interior"
+              class="gallery-filter font-body text-sm font-medium px-6 py-2.5 rounded-full shadow-sm transition-all duration-300
+                     bg-white text-woods-light hover:bg-parchment hover:shadow-md">
+        Interior      </button>
+            <button data-filter="dining"
+              class="gallery-filter font-body text-sm font-medium px-6 py-2.5 rounded-full shadow-sm transition-all duration-300
+                     bg-white text-woods-light hover:bg-parchment hover:shadow-md">
+        Dining      </button>
+            <button data-filter="rooms"
+              class="gallery-filter font-body text-sm font-medium px-6 py-2.5 rounded-full shadow-sm transition-all duration-300
+                     bg-white text-woods-light hover:bg-parchment hover:shadow-md">
+        Rooms      </button>
+            <button data-filter="garden"
+              class="gallery-filter font-body text-sm font-medium px-6 py-2.5 rounded-full shadow-sm transition-all duration-300
+                     bg-white text-woods-light hover:bg-parchment hover:shadow-md">
+        Garden      </button>
+          </div>
+
+    <!-- Swipe Indicator (Mobile Only) -->
+    <div class="md:hidden flex items-center justify-end gap-2 mb-3 pr-2 reveal">
+      <span class="font-classic text-woods-light text-[10px] tracking-widest uppercase opacity-80">Swipe</span>
+      <svg class="w-5 h-5 text-gold swipe-hint-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+    </div>
+
+    <!-- Modern Card Grid -->
+    <div id="galleryGrid" class="flex overflow-x-auto snap-x snap-mandatory hide-scroll md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal pb-4">
+
+    <!-- See More / See Less Button -->
+        <div class="text-center mt-12 reveal" id="seeMoreWrap">
+      <button id="seeMoreBtn"
+              class="inline-flex items-center gap-3 font-classic tracking-widest uppercase text-sm px-10 py-4 border border-woods/30 text-woods rounded-full hover:border-gold hover:text-gold hover:bg-gold/5 transition-all duration-300 group">
+        <span id="seeMoreLabel">See More Photos</span>
+        <svg id="seeMoreIcon" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+    </div>
+    
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4">
+  <button id="lightboxClose" class="absolute top-4 right-4 text-parchment/60 hover:text-gold text-4xl leading-none transition-colors">&times;</button>
+  <button id="lightboxPrev" class="absolute left-4 top-1/2 -translate-y-1/2 text-parchment/60 hover:text-gold text-4xl transition-colors">&#8249;</button>
+  <button id="lightboxNext" class="absolute right-4 top-1/2 -translate-y-1/2 text-parchment/60 hover:text-gold text-4xl transition-colors">&#8250;</button>
+  <div class="max-w-5xl max-h-full">
+    <img id="lightboxImg" src="" alt="" class="max-w-full max-h-[80vh] object-contain mx-auto rounded-sm shadow-2xl" />
+    <p id="lightboxCaption" class="text-center font-classic text-parchment/60 text-sm tracking-widest mt-4 uppercase"></p>
+  </div>
+</div>
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-12 md:py-20 bg-woods-dark text-parchment relative overflow-hidden">
+    <!-- Decorative background element -->
+    <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-woods rounded-full opacity-50 z-0"></div>
+    <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-64 h-64 bg-woods rounded-full opacity-50 z-0"></div>
+
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl relative z-10">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="text-gold font-semibold tracking-wider uppercase text-sm mb-2 block">Guest Reviews</span>
+            <h2 class="text-3xl md:text-5xl font-display mb-4">What Our Guests Say</h2>
+            <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+            <!-- Swipe Indicator (Mobile Only) -->
+            <div class="md:hidden flex items-center justify-center gap-2 pr-2">
+              <span class="font-classic text-gold-light text-[10px] tracking-widest uppercase opacity-80">Swipe</span>
+              <svg class="w-5 h-5 text-gold swipe-hint-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </div>
+        </div>
+
+        <div id="testimonialsContainer" class="flex overflow-x-auto snap-x snap-mandatory hide-scroll md:grid md:grid-cols-3 gap-6 pb-4">
+            
+                        <!-- Fallback Review 1 -->
+            <div class="w-[85vw] flex-shrink-0 snap-center md:w-auto bg-woods/80 backdrop-blur-sm p-8 rounded-sm border border-gold/20 hover:border-gold/40 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex text-gold mb-4">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <p class="italic text-parchment/80 mb-6 font-body leading-relaxed">"Absolutely stunning property. The garden is enormous and perfect for relaxing in the evenings. The staff went above and beyond to make our stay comfortable."</p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-woods-light rounded-full flex items-center justify-center font-bold text-xl text-gold mr-4">S</div>
+                    <div>
+                        <h4 class="font-bold text-parchment font-display">Sarah Jenkins</h4>
+                        <span class="text-xs text-parchment/60 font-classic tracking-wider">United Kingdom</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fallback Review 2 -->
+            <div class="w-[85vw] flex-shrink-0 snap-center md:w-auto bg-woods/80 backdrop-blur-sm p-8 rounded-sm border border-gold/20 hover:border-gold/40 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex text-gold mb-4">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <p class="italic text-parchment/80 mb-6 font-body leading-relaxed">"The location is fantastic. It's peaceful and secluded but just a short drive to Galle Fort. The Sri Lankan breakfast prepared for us was a highlight of the trip!"</p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-woods-light rounded-full flex items-center justify-center font-bold text-xl text-gold mr-4">M</div>
+                    <div>
+                        <h4 class="font-bold text-parchment font-display">Michael Chen</h4>
+                        <span class="text-xs text-parchment/60 font-classic tracking-wider">Singapore</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fallback Review 3 -->
+            <div class="w-[85vw] flex-shrink-0 snap-center md:w-auto bg-woods/80 backdrop-blur-sm p-8 rounded-sm border border-gold/20 hover:border-gold/40 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex text-gold mb-4">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <p class="italic text-parchment/80 mb-6 font-body leading-relaxed">"A true luxury experience. The attention to detail in the rooms and the general ambiance made our anniversary unforgettable. Highly recommended!"</p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-woods-light rounded-full flex items-center justify-center font-bold text-xl text-gold mr-4">D</div>
+                    <div>
+                        <h4 class="font-bold text-parchment font-display">David & Emma</h4>
+                        <span class="text-xs text-parchment/60 font-classic tracking-wider">Australia</span>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</section>
+<!-- Location Section -->
+<section id="location" class="py-12 md:py-20 bg-white">
+    <div class="container mx-auto px-4 md:px-6 max-w-7xl">
+        <div class="flex flex-col lg:flex-row gap-12">
+            
+            <!-- Content -->
+            <div class="w-full lg:w-1/3 flex flex-col justify-center" data-aos="fade-right">
+                <span class="text-colonial-600 font-semibold tracking-wider uppercase text-sm mb-2 block">Location</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-colonial-900 mb-6">Discover The South Coast</h2>
+                <div class="w-16 h-1 bg-colonial-500 mb-6"></div>
+                
+                <p class="text-colonial-700 text-lg mb-8 leading-relaxed">
+                    Perfectly situated to offer tranquility while remaining close to the vibrant attractions of Galle. 
+                    Whether you want to explore heritage sites or catch some waves, Beekke Willa is your ideal base.
+                </p>
+
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-colonial-50 rounded-full flex items-center justify-center text-colonial-600 shrink-0 mt-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-colonial-900">Address</h4>
+                            <p class="text-colonial-600">Beekke Willa, Galle, Sri Lanka</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-colonial-50 rounded-full flex items-center justify-center text-colonial-600 shrink-0 mt-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-colonial-900">Distances</h4>
+                            <ul class="text-colonial-600 space-y-1">
+                                <li>15 mins to Galle Fort</li>
+                                <li>20 mins to Unawatuna Beach</li>
+                                <li>1.5 hrs from Colombo via Expressway</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Map -->
+            <div class="w-full lg:w-2/3 h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-xl" data-aos="fade-left">
+                <!-- Using coordinates provided by user: 6.0517385798804915, 80.21380032158176 -->
+                <iframe 
+                    src="https://maps.google.com/maps?q=6.0517385798804915,80.21380032158176&z=15&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- FAQ Section -->
+<section id="faq" class="py-12 md:py-20 bg-stone-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-5xl font-serif text-colonial-900 mb-4">Frequently Asked Questions</h2>
+            <div class="w-24 h-1 bg-colonial-500 mx-auto mb-6"></div>
+        </div>
+
+        <div class="space-y-4" data-aos="fade-up">
+            
+                        <!-- Fallback FAQ Item 1 -->
+            <div class="bg-white rounded-xl shadow-sm border border-colonial-100 overflow-hidden faq-item">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none faq-btn">
+                    <span class="font-serif text-lg text-colonial-900 font-semibold">What are the check-in and check-out times?</span>
+                    <svg class="w-5 h-5 text-colonial-500 transform transition-transform duration-200 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="px-6 pb-4 hidden faq-content">
+                    <p class="text-colonial-600">Standard check-in time is 2:00 PM and check-out is at 12:00 NOON. Early check-in or late check-out can be requested subject to availability.</p>
+                </div>
+            </div>
+
+            <!-- Fallback FAQ Item 2 -->
+            <div class="bg-white rounded-xl shadow-sm border border-colonial-100 overflow-hidden faq-item">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none faq-btn">
+                    <span class="font-serif text-lg text-colonial-900 font-semibold">Are meals included in the booking?</span>
+                    <svg class="w-5 h-5 text-colonial-500 transform transition-transform duration-200 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="px-6 pb-4 hidden faq-content">
+                    <p class="text-colonial-600">We offer Bed & Breakfast (B&B) as standard, but Half-Board and Full-Board options are available. Our in-house chef can also prepare custom meals upon request.</p>
+                </div>
+            </div>
+
+            <!-- Fallback FAQ Item 3 -->
+            <div class="bg-white rounded-xl shadow-sm border border-colonial-100 overflow-hidden faq-item">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none faq-btn">
+                    <span class="font-serif text-lg text-colonial-900 font-semibold">Do you have a cancellation policy?</span>
+                    <svg class="w-5 h-5 text-colonial-500 transform transition-transform duration-200 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="px-6 pb-4 hidden faq-content">
+                    <p class="text-colonial-600">Yes, cancellations made up to 14 days before arrival are fully refundable. Please refer to our terms and conditions page for detailed information on peak season policies.</p>
+                </div>
+            </div>
+
+             <!-- Fallback FAQ Item 4 -->
+             <div class="bg-white rounded-xl shadow-sm border border-colonial-100 overflow-hidden faq-item">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none faq-btn">
+                    <span class="font-serif text-lg text-colonial-900 font-semibold">Is the villa suitable for events or parties?</span>
+                    <svg class="w-5 h-5 text-colonial-500 transform transition-transform duration-200 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="px-6 pb-4 hidden faq-content">
+                    <p class="text-colonial-600">Small private gatherings are permitted with prior approval. However, large parties or events that may disturb the tranquility of the neighborhood are not allowed.</p>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</section>
+
+<script>
+    // Simple FAQ Accordion Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqBtns = document.querySelectorAll('.faq-btn');
+        
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.faq-icon');
+                
+                // Toggle current
+                if (content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    icon.classList.add('rotate-180');
+                } else {
+                    content.classList.add('hidden');
+                    icon.classList.remove('rotate-180');
+                }
+            });
+        });
+    });
+</script>
+<!-- ═══════════════════════════════════════════════════════════
+     BOOKING SECTION
+════════════════════════════════════════════════════════════ -->
+<section id="booking" class="py-16 md:py-28 bg-parchment relative overflow-hidden">
+  <!-- Decorative -->
+  <div class="absolute inset-0 opacity-[0.03]"
+       style="background-image: url(\"data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%233E2723' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='40' cy='40' r='2'/%3E%3C/g%3E%3C/svg%3E\");"></div>
+
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+      <!-- Left: Info -->
+      <div class="reveal">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="h-px w-12 bg-gold"></div>
+          <span class="font-classic text-gold text-xs tracking-[0.4em] uppercase">Reservations</span>
+        </div>
+        <h2 class="font-display text-5xl md:text-6xl font-bold text-woods mb-6">
+          Reserve Your<br /><span class="text-gold italic">Stay</span>
+        </h2>
+        <p class="font-body text-woods-light leading-relaxed mb-10 text-lg">
+          Fill in your details below and our team will confirm your reservation within 24 hours.
+          For immediate assistance, contact us directly.
+        </p>
+
+        <!-- Contact quick-links -->
+        <div class="space-y-4 mb-10">
+          <a href="tel:+077-9493059"
+             class="flex items-center gap-4 p-4 bg-woods/5 rounded-sm hover:bg-woods/10 transition-colors group">
+            <span class="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center text-gold text-lg group-hover:bg-gold group-hover:text-woods transition-all">📞</span>
+            <div>
+              <p class="font-classic text-xs text-woods/50 tracking-widest uppercase">Call Direct</p>
+              <p class="font-display text-woods font-semibold">077-9493059</p>
+            </div>
+          </a>
+          <a href="https://wa.me/94779493059" target="_blank"
+             class="flex items-center gap-4 p-4 bg-woods/5 rounded-sm hover:bg-woods/10 transition-colors group">
+            <span class="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center text-gold text-lg group-hover:bg-gold group-hover:text-woods transition-all">💬</span>
+            <div>
+              <p class="font-classic text-xs text-woods/50 tracking-widest uppercase">WhatsApp</p>
+              <p class="font-display text-woods font-semibold">+94779493059</p>
+            </div>
+          </a>
+          <div class="flex items-start gap-4 p-4 bg-woods/5 rounded-sm">
+            <span class="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center text-gold text-lg flex-shrink-0">📍</span>
+            <div>
+              <p class="font-classic text-xs text-woods/50 tracking-widest uppercase mb-1">Location</p>
+              <p class="font-body text-woods">Mahinda Mawatha, Galle, Sri Lanka</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Policies -->
+        <div class="border-t border-woods/10 pt-6">
+          <p class="font-classic text-xs text-woods/50 tracking-widest uppercase mb-3">Booking Policies</p>
+          <ul class="space-y-2 font-body text-sm text-woods-light">
+            <li>✦ Confirmation within 24 hours</li>
+            <li>✦ 50% advance payment required</li>
+            <li>✦ Cancellation policy: 48 hours notice</li>
+            <li>✦ Check-in: 12:00 PM · Check-out: 11:00 AM</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="reveal">
+        <div class="bg-woods rounded-sm p-8 shadow-2xl relative overflow-hidden">
+          <!-- Gold corner accents -->
+          <div class="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-gold/40"></div>
+          <div class="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-gold/40"></div>
+          <div class="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-gold/40"></div>
+          <div class="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-gold/40"></div>
+
+          <h3 class="font-display text-2xl text-parchment font-semibold mb-6 text-center">
+            ✦ Check Availability ✦
+          </h3>
+
+          <!-- Alerts -->
+          <div id="bookingSuccess" class="hidden mb-6 p-4 bg-gold/20 border border-gold/40 rounded-sm text-gold font-classic text-sm tracking-wide text-center"></div>
+          <div id="bookingError" class="hidden mb-6 p-4 bg-red-900/30 border border-red-400/40 rounded-sm text-red-300 font-classic text-sm tracking-wide text-center"></div>
+
+          <form id="bookingForm" novalidate class="space-y-5">
+            <input type="hidden" name="csrf_token" value="712936a74c2d9d1ad8970b5ccdbbf71230b1c4106e4df6e8ed44687f4a3414b9" />
+
+            <!-- Row: Name + Nationality -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="form-label">Full Name *</label>
+                <input type="text" name="full_name" id="full_name" required placeholder="Your full name"
+                       class="form-input" />
+              </div>
+              <div>
+                <label class="form-label">Nationality</label>
+                <input type="text" name="nationality" id="nationality" placeholder="Country"
+                       class="form-input" />
+              </div>
+            </div>
+
+            <!-- Row: Email + Phone -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="form-label">Email *</label>
+                <input type="email" name="email" id="email" required placeholder="your@email.com"
+                       class="form-input" />
+              </div>
+              <div>
+                <label class="form-label">Phone *</label>
+                <input type="tel" name="phone" id="phone" required placeholder="+94 77 ..."
+                       class="form-input" />
+              </div>
+            </div>
+
+            <!-- Row: Check-in + Check-out -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="form-label">Check-In *</label>
+                <input type="text" name="check_in" id="check_in" required placeholder="Select date"
+                       class="form-input datepicker" readonly />
+              </div>
+              <div>
+                <label class="form-label">Check-Out *</label>
+                <input type="text" name="check_out" id="check_out" required placeholder="Select date"
+                       class="form-input datepicker" readonly />
+              </div>
+            </div>
+
+            <!-- Row: Adults + Children -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="form-label">Adults *</label>
+                <select name="num_adults" id="num_adults" class="form-input">
+                                    <option value="1">1 Adult</option>
+                                    <option value="2">2 Adults</option>
+                                    <option value="3">3 Adults</option>
+                                    <option value="4">4 Adults</option>
+                                    <option value="5">5 Adults</option>
+                                    <option value="6">6 Adults</option>
+                                    <option value="7">7 Adults</option>
+                                    <option value="8">8 Adults</option>
+                                    <option value="9">9 Adults</option>
+                                    <option value="10">10 Adults</option>
+                                    <option value="11">11 Adults</option>
+                                    <option value="12">12 Adults</option>
+                                  </select>
+              </div>
+              <div>
+                <label class="form-label">Children</label>
+                <select name="num_children" id="num_children" class="form-input">
+                                    <option value="0">0 Children</option>
+                                    <option value="1">1 Child</option>
+                                    <option value="2">2 Children</option>
+                                    <option value="3">3 Children</option>
+                                    <option value="4">4 Children</option>
+                                    <option value="5">5 Children</option>
+                                    <option value="6">6 Children</option>
+                                  </select>
+              </div>
+            </div>
+
+            <!-- Package -->
+            <div>
+              <label class="form-label">Package *</label>
+              <select name="package_type" id="package_type" class="form-input" required>
+                <option value="">— Select a Package —</option>
+                <option value="family_nonac">Family/Event · Non-AC — LKR 25,000</option>
+                <option value="family_ac">Family/Event · AC — LKR 30,000</option>
+                <option value="family_cook_nonac">With Cook · Non-AC — LKR 30,000</option>
+                <option value="family_cook_ac">With Cook · AC — LKR 35,000</option>
+                <option value="suite_function">Suite/Function — LKR 7,500</option>
+              </select>
+            </div>
+
+            <!-- Price preview -->
+            <div id="pricePreview" class="hidden bg-gold/10 border border-gold/30 rounded-sm p-4 text-center">
+              <p class="font-classic text-gold/70 text-xs tracking-widest uppercase mb-1">Estimated Total</p>
+              <p class="font-display text-2xl font-bold text-gold" id="priceAmount">LKR 0</p>
+              <p class="font-classic text-gold/60 text-xs mt-1" id="priceDays"></p>
+            </div>
+
+            <!-- Special Requests -->
+            <div>
+              <label class="form-label">Special Requests</label>
+              <textarea name="special_requests" id="special_requests" rows="3"
+                        placeholder="Dietary requirements, extra bedding, event details..."
+                        class="form-input resize-none"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" id="submitBtn"
+                    class="btn-gold w-full py-4 font-classic tracking-widest text-sm uppercase text-woods font-semibold rounded-sm relative overflow-hidden">
+              <span id="btnText">✦ Send Reservation Request</span>
+              <span id="btnLoading" class="hidden">Sending...</span>
+            </button>
+
+            <p class="font-classic text-parchment/30 text-xs text-center tracking-wide">
+              We will confirm your reservation within 24 hours via email or phone.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════════ -->
+<footer class="bg-woods-dark text-parchment">
+  <!-- Top footer -->
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <div class="mb-6">
+          <p class="font-display text-4xl font-bold text-gold tracking-widest">Beekke</p>
+          <p class="font-classic text-parchment/40 text-xs tracking-[0.5em] uppercase">Villa · Galle · Sri Lanka</p>
+        </div>
+        <p class="font-body text-parchment/60 leading-relaxed max-w-sm mb-6">
+          A timeless colonial mansion offering an authentic Sri Lankan Walawwa experience in the heart of historic Galle.
+        </p>
+        <div class="flex gap-4">
+          <a href="https://facebook.com/bikeevilla" target="_blank" aria-label="Facebook"
+             class="w-10 h-10 border border-gold/20 rounded-full flex items-center justify-center text-parchment/60 hover:border-gold hover:text-gold transition-all duration-300 text-sm">
+            <svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://instagram.com/bikeevilla" target="_blank" aria-label="Instagram"
+             class="w-10 h-10 border border-gold/20 rounded-full flex items-center justify-center text-parchment/60 hover:border-gold hover:text-gold transition-all duration-300 text-sm">
+            <svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://wa.me/94779493059" target="_blank" aria-label="WhatsApp"
+             class="w-10 h-10 border border-gold/20 rounded-full flex items-center justify-center text-parchment/60 hover:border-gold hover:text-gold transition-all duration-300 text-sm">
+            <svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.128.552 4.195 1.6 6.012L.48 24l6.113-1.597A11.966 11.966 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.03S18.676 0 12.031 0zm0 21.996c-1.802 0-3.564-.482-5.111-1.393l-.366-.215-3.799.992.997-3.69-.236-.376A9.972 9.972 0 012.035 12.03c0-5.523 4.478-10.001 10.001-10.001 5.522 0 10.001 4.478 10.001 10.001 0 5.522-4.479 10.001-10.001 10.001zm5.553-7.585c-.304-.152-1.799-.887-2.077-.988-.278-.101-.481-.152-.684.152-.202.304-.784.988-.962 1.191-.177.202-.355.228-.658.076-.304-.152-1.285-.473-2.449-1.516-.906-.811-1.517-1.815-1.694-2.119-.177-.304-.019-.468.133-.62.137-.137.304-.355.456-.532.152-.178.203-.304.304-.507.101-.203.051-.38-.025-.532-.076-.152-.684-1.649-.937-2.257-.247-.594-.497-.514-.684-.523-.177-.008-.38-.008-.582-.008s-.532.076-.811.38c-.278.304-1.064 1.039-1.064 2.534 0 1.495 1.089 2.94 1.241 3.142.152.203 2.143 3.271 5.192 4.587.725.313 1.291.501 1.732.641.728.23 1.391.197 1.916.12.587-.089 1.802-.736 2.055-1.445.253-.709.253-1.318.177-1.445-.076-.127-.279-.203-.583-.355z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <p class="font-classic text-gold text-xs tracking-[0.4em] uppercase mb-6">Quick Links</p>
+        <ul class="space-y-3">
+                    <li>
+            <a href="#about" class="font-body text-parchment/60 hover:text-gold transition-colors text-sm">
+              → Our Story            </a>
+          </li>
+                    <li>
+            <a href="#rooms" class="font-body text-parchment/60 hover:text-gold transition-colors text-sm">
+              → Rooms & Pricing            </a>
+          </li>
+                    <li>
+            <a href="#gallery" class="font-body text-parchment/60 hover:text-gold transition-colors text-sm">
+              → Gallery            </a>
+          </li>
+                    <li>
+            <a href="#location" class="font-body text-parchment/60 hover:text-gold transition-colors text-sm">
+              → Location            </a>
+          </li>
+                    <li>
+            <a href="#booking" class="font-body text-parchment/60 hover:text-gold transition-colors text-sm">
+              → Book Now            </a>
+          </li>
+                    <li>
+            <a href="admin/" class="font-body text-parchment/60 hover:text-gold transition-colors text-sm">
+              → Admin Panel            </a>
+          </li>
+                  </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="font-classic text-gold text-xs tracking-[0.4em] uppercase mb-6">Contact</p>
+        <div class="space-y-4 font-body text-sm text-parchment/60">
+          <div>
+            <p class="text-parchment/30 text-xs font-classic tracking-widest uppercase mb-1">Phone</p>
+            <a href="tel:+077-9493059" class="hover:text-gold transition-colors">
+              077-9493059            </a>
+          </div>
+          <div>
+            <p class="text-parchment/30 text-xs font-classic tracking-widest uppercase mb-1">Email</p>
+            <a href="mailto:info@bikeevilla.lk" class="hover:text-gold transition-colors">
+              info@bikeevilla.lk            </a>
+          </div>
+          <div>
+            <p class="text-parchment/30 text-xs font-classic tracking-widest uppercase mb-1">Address</p>
+            <p>Mahinda Mawatha, Galle, Sri Lanka</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gold divider -->
+  <div class="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
+
+  <!-- Bottom footer -->
+  <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="font-classic text-parchment/30 text-xs tracking-wider">
+      &copy; 2026 Beekke Villa, Galle, Sri Lanka. All rights reserved.
+    </p>
+    <p class="font-classic text-parchment/20 text-xs tracking-wider text-right">
+      Powered By M.R.Link Technology
+    </p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="assets/js/main.js"></script>
+<script type="module" src="assets/js/gallery.js"></script>
+<script>
+  // Pass PHP pricing data to JS
+  window.BeekkePricing = {"family_nonac":25000,"family_ac":30000,"family_cook_nonac":30000,"family_cook_ac":35000,"suite_function":7500};
+</script>
+<!-- ═══════════════════════════════════════════════════════════
+     FLOATING WHATSAPP WIDGET
+════════════════════════════════════════════════════════════ -->
+<a href="https://wa.me/94779493059" target="_blank" aria-label="Chat on WhatsApp" class="whatsapp-float">
+  <svg viewBox="0 0 32 32" fill="currentColor">
+    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.456.634 4.764 1.748 6.786L2 29.896l7.288-1.706C11.238 29.356 13.546 30 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.8c-2.148 0-4.17-.55-5.932-1.516l-.426-.232-4.4 1.03 1.05-4.288-.256-.442C4.946 20.468 4.3 18.314 4.3 16 4.3 9.548 9.548 4.3 16 4.3c6.452 0 11.7 5.248 11.7 11.7S22.452 27.8 16 27.8zm6.518-8.916c-.358-.178-2.114-1.044-2.44-1.164-.326-.118-.564-.178-.802.178-.238.358-.922 1.164-1.13 1.402-.208.238-.416.268-.774.088-.358-.178-1.508-.556-2.872-1.776-1.062-.948-1.78-2.122-1.988-2.48-.208-.358-.022-.552.158-.73.16-.16.358-.416.536-.624.178-.208.238-.358.358-.596.118-.238.058-.448-.03-.626-.088-.178-.802-1.936-1.098-2.65-.29-.696-.584-.602-.802-.612-.208-.01-.446-.01-.684-.01s-.624.088-.95.446c-.326.358-1.246 1.218-1.246 2.97 0 1.752 1.276 3.446 1.454 3.684.178.238 2.512 3.834 6.082 5.378.85.368 1.514.588 2.03.754.854.27 1.632.232 2.246.14.688-.104 2.114-.864 2.412-1.7.298-.836.298-1.552.208-1.7-.088-.148-.326-.238-.684-.416z" />
+  </svg>
+  <span class="font-classic tracking-widest text-xs uppercase pt-0.5">Chat with us</span>
+</a>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MOBILE STICKY BOTTOM BAR
+════════════════════════════════════════════════════════════ -->
+<div id="mobileStickyBar" class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-woods/10 z-40 px-6 py-4 flex justify-between items-center shadow-[0_-4px_20px_rgba(0,0,0,0.05)] transform translate-y-full transition-transform duration-500">
+  <div>
+    <p class="font-classic text-xs tracking-widest uppercase text-woods-light">Price</p>
+    <p class="font-display font-bold text-woods text-lg">Rs. 7,500 <span class="text-xs font-normal text-woods-light font-body">/ night</span></p>
+  </div>
+  <a href="#booking" class="bg-gold text-woods font-classic text-sm tracking-widest uppercase px-6 py-3 rounded-full hover:bg-gold-dark hover:text-white transition-colors shadow-lg">
+    Book Now
+  </a>
+</div>
+
+<script type="module" src="assets/js/firebase.js"></script>
+<script type="module" src="assets/js/booking.js"></script>
+<script type="module" src="assets/js/frontend-testimonials.js"></script>
+</body>
+</html>
