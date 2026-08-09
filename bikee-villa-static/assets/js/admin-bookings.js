@@ -1,4 +1,6 @@
 import { db } from "./firebase.js";
+import { requireAuth } from "./admin-auth.js";
+requireAuth(['Admin', 'Manager']);
 import { collection, getDocs, updateDoc, deleteDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 let allBookings = [];

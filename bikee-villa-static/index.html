@@ -485,99 +485,14 @@
     </div>
 
     <!-- Pricing Cards -->
-    <div class="flex overflow-x-auto snap-x snap-mandatory hide-scroll md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 reveal pb-4">
-
-      <!-- Card: Family Non-AC -->
-      <div class="pricing-card w-[85vw] flex-shrink-0 snap-center md:w-auto bg-parchment/5 border border-gold/20 rounded-sm p-8 hover:border-gold/60 hover:bg-parchment/10 transition-all duration-500 group">
-        <div class="text-gold text-3xl mb-4">🏡</div>
-        <h3 class="font-display text-xl text-parchment font-semibold mb-2">Family / Event Package</h3>
-        <p class="font-classic text-parchment/50 text-xs tracking-widest uppercase mb-6">Non-Air Conditioned · 1 Day</p>
-        <div class="flex items-baseline gap-2 mb-6">
-          <span class="font-display text-4xl font-bold text-gold">
-            25,000          </span>
-          <span class="font-classic text-parchment/50 text-sm">LKR / day</span>
-        </div>
-        <ul class="space-y-2 mb-8 font-body text-parchment/70 text-sm">
-          <li class="flex gap-2"><span class="text-gold">✦</span> Exclusive villa access</li>
-          <li class="flex gap-2"><span class="text-gold">✦</span> All 5 rooms</li>
-          <li class="flex gap-2"><span class="text-gold">✦</span> Up to 12 guests</li>
-          <li class="flex gap-2"><span class="text-gold">✦</span> Kitchen access</li>
-        </ul>
-        <a href="#booking" class="block text-center border border-gold/40 text-gold font-classic text-xs tracking-widest uppercase py-3 rounded-sm group-hover:bg-gold group-hover:text-woods transition-all duration-300">
-          Book This Package
-        </a>
-      </div>
-
-      <!-- Card: Family AC (Featured) -->
-      <div class="pricing-card-featured w-[85vw] flex-shrink-0 snap-center md:w-auto relative bg-gradient-to-b from-gold to-gold-dark rounded-sm p-8 shadow-2xl transform scale-105">
-        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-woods text-gold font-classic text-xs tracking-widest uppercase px-4 py-1 rounded-full border border-gold/30">
-          Most Popular
-        </div>
-        <div class="text-woods text-3xl mb-4">❄️</div>
-        <h3 class="font-display text-xl text-woods font-semibold mb-2">Family / Event Package</h3>
-        <p class="font-classic text-woods/60 text-xs tracking-widest uppercase mb-6">Air Conditioned · 1 Day</p>
-        <div class="flex items-baseline gap-2 mb-6">
-          <span class="font-display text-4xl font-bold text-woods">
-            30,000          </span>
-          <span class="font-classic text-woods/60 text-sm">LKR / day</span>
-        </div>
-        <ul class="space-y-2 mb-8 font-body text-woods text-sm">
-          <li class="flex gap-2"><span class="text-woods/60">✦</span> Exclusive villa access</li>
-          <li class="flex gap-2"><span class="text-woods/60">✦</span> All 5 rooms with AC</li>
-          <li class="flex gap-2"><span class="text-woods/60">✦</span> Up to 12 guests</li>
-          <li class="flex gap-2"><span class="text-woods/60">✦</span> Kitchen access</li>
-        </ul>
-        <a href="#booking" class="block text-center bg-woods text-gold font-classic text-xs tracking-widest uppercase py-3 rounded-sm hover:bg-woods-dark transition-all duration-300">
-          Book This Package
-        </a>
-      </div>
-
-      <!-- Card: Suite/Function -->
-      <div class="pricing-card w-[85vw] flex-shrink-0 snap-center md:w-auto bg-parchment/5 border border-gold/20 rounded-sm p-8 hover:border-gold/60 hover:bg-parchment/10 transition-all duration-500 group">
-        <div class="text-gold text-3xl mb-4">🎭</div>
-        <h3 class="font-display text-xl text-parchment font-semibold mb-2">Suite / Function Package</h3>
-        <p class="font-classic text-parchment/50 text-xs tracking-widest uppercase mb-6">Events &amp; Functions</p>
-        <div class="flex items-baseline gap-2 mb-6">
-          <span class="font-display text-4xl font-bold text-gold">
-            7,500          </span>
-          <span class="font-classic text-parchment/50 text-sm">LKR / day</span>
-        </div>
-        <ul class="space-y-2 mb-8 font-body text-parchment/70 text-sm">
-          <li class="flex gap-2"><span class="text-gold">✦</span> Suite room access</li>
-          <li class="flex gap-2"><span class="text-gold">✦</span> Function hall</li>
-          <li class="flex gap-2"><span class="text-gold">✦</span> Ideal for events</li>
-          <li class="flex gap-2"><span class="text-gold">✦</span> Flexible arrangements</li>
-        </ul>
-        <a href="#booking" class="block text-center border border-gold/40 text-gold font-classic text-xs tracking-widest uppercase py-3 rounded-sm group-hover:bg-gold group-hover:text-woods transition-all duration-300">
-          Book This Package
-        </a>
-      </div>
+    <div id="dynamicPackagesContainer" class="flex overflow-x-auto snap-x snap-mandatory hide-scroll md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 reveal pb-4">
+      <!-- Dynamic Large Cards Will Load Here -->
+      <p class="font-classic text-parchment/50">Loading packages...</p>
     </div>
 
     <!-- Cook packages -->
-    <div class="flex overflow-x-auto snap-x snap-mandatory hide-scroll md:grid md:grid-cols-2 gap-6 reveal pb-4">
-      <div class="pricing-card w-[85vw] flex-shrink-0 snap-center md:w-auto bg-parchment/5 border border-gold/20 rounded-sm p-6 hover:border-gold/60 transition-all duration-500 group flex flex-col md:flex-row items-start md:items-center gap-6">
-        <div class="text-4xl flex-shrink-0">👨‍🍳</div>
-        <div class="flex-1">
-          <h3 class="font-display text-lg text-parchment font-semibold">With Cook · Non-AC</h3>
-          <p class="font-classic text-parchment/50 text-xs tracking-widest uppercase mb-2">Full catering included</p>
-          <span class="font-display text-2xl font-bold text-gold">30,000 <span class="font-classic text-sm text-parchment/50">LKR/day</span></span>
-        </div>
-        <a href="#booking" class="flex-shrink-0 border border-gold/40 text-gold font-classic text-xs tracking-widest uppercase px-4 py-2 rounded-sm group-hover:bg-gold group-hover:text-woods transition-all duration-300">
-          Book
-        </a>
-      </div>
-      <div class="pricing-card w-[85vw] flex-shrink-0 snap-center md:w-auto bg-parchment/5 border border-gold/20 rounded-sm p-6 hover:border-gold/60 transition-all duration-500 group flex flex-col md:flex-row items-start md:items-center gap-6">
-        <div class="text-4xl flex-shrink-0">👨‍🍳</div>
-        <div class="flex-1">
-          <h3 class="font-display text-lg text-parchment font-semibold">With Cook · AC</h3>
-          <p class="font-classic text-parchment/50 text-xs tracking-widest uppercase mb-2">Full catering + AC</p>
-          <span class="font-display text-2xl font-bold text-gold">35,000 <span class="font-classic text-sm text-parchment/50">LKR/day</span></span>
-        </div>
-        <a href="#booking" class="flex-shrink-0 border border-gold/40 text-gold font-classic text-xs tracking-widest uppercase px-4 py-2 rounded-sm group-hover:bg-gold group-hover:text-woods transition-all duration-300">
-          Book
-        </a>
-      </div>
+    <div id="dynamicSmallPackagesContainer" class="flex overflow-x-auto snap-x snap-mandatory hide-scroll md:grid md:grid-cols-2 gap-6 reveal pb-4">
+      <!-- Dynamic Small Cards Will Load Here -->
     </div>
   </div>
 </section>
@@ -1263,10 +1178,7 @@
             <a href="#booking" class="font-body text-parchment/60 hover:text-gold transition-colors text-sm">
               → Book Now            </a>
           </li>
-                    <li>
-            <a href="admin/" class="font-body text-parchment/60 hover:text-gold transition-colors text-sm">
-              → Admin Panel            </a>
-          </li>
+          
                   </ul>
       </div>
 

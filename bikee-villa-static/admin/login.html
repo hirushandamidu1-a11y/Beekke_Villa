@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - Beekke Villa</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'woods':    '#3E2723',
+            'woods-light': '#5D4037',
+            'woods-dark':  '#1B0000',
+            'gold':     '#D4AF37',
+            'gold-light': '#E8CC6A',
+            'gold-dark':  '#A68B1E',
+            'parchment': '#FDF5E6',
+            'parchment-dark': '#F5E6C8',
+            'ink':      '#2C1810',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Lora', 'Georgia', 'serif'],
+            classic: ['EB Garamond', 'Georgia', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-woods-dark font-body min-h-screen flex items-center justify-center relative overflow-hidden">
+  
+  <!-- Decorative Background -->
+  <div class="absolute inset-0 bg-[url('../assets/images/gallery/exterior.jpg')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-woods-dark via-woods-dark/80 to-transparent"></div>
+
+  <div class="relative z-10 w-full max-w-md px-6">
+    <div class="bg-parchment rounded-sm shadow-2xl p-8 border border-gold/30">
+      
+      <!-- Header -->
+      <div class="text-center mb-8">
+        <h1 class="font-display text-4xl text-woods font-bold tracking-widest mb-2">Beekke</h1>
+        <p class="font-classic text-gold-dark text-xs tracking-[0.3em] uppercase">Admin Portal</p>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="space-y-6">
+        <div>
+          <label for="email" class="block font-classic text-xs tracking-widest uppercase text-woods-light mb-2">Email Address</label>
+          <input type="email" id="email" name="email" required
+                 class="w-full bg-white/50 border border-gold/40 rounded-sm px-4 py-3 font-body text-ink focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors placeholder:text-ink/30"
+                 placeholder="admin@bikeevilla.lk">
+        </div>
+
+        <div>
+          <label for="password" class="block font-classic text-xs tracking-widest uppercase text-woods-light mb-2">Password</label>
+          <input type="password" id="password" name="password" required
+                 class="w-full bg-white/50 border border-gold/40 rounded-sm px-4 py-3 font-body text-ink focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors placeholder:text-ink/30"
+                 placeholder="••••••••">
+        </div>
+
+        <!-- Error Message Container -->
+        <div id="errorMessage" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-sm font-body" role="alert">
+          <span class="block sm:inline" id="errorText">Invalid credentials.</span>
+        </div>
+
+        <button type="submit" id="loginBtn" class="w-full bg-woods text-gold font-classic tracking-widest text-sm uppercase py-4 rounded-sm hover:bg-woods-dark hover:text-gold-light transition-all duration-300 flex justify-center items-center gap-2">
+          <span>Sign In</span>
+          <!-- Loading Spinner (Hidden by default) -->
+          <svg id="loginSpinner" class="hidden animate-spin -ml-1 mr-3 h-5 w-5 text-gold" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </button>
+      </form>
+      
+      <div class="mt-6 text-center">
+        <a href="../" class="font-classic text-xs tracking-widest uppercase text-woods-light hover:text-gold transition-colors">
+          ← Back to Main Site
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="../assets/js/admin-auth.js"></script>
+</body>
+</html>

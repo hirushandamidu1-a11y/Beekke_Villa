@@ -4,16 +4,114 @@
  */
 
 import { db } from './firebase.js';
-import { collection, addDoc, serverTimestamp, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { collection, addDoc, serverTimestamp, doc, getDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
 
-  // ── Pricing data (injected from PHP) ──────────────────────
-  const pricing = window.bikeePricing || {
-    family_nonac: 25000, family_ac: 30000,
-    family_cook_nonac: 30000, family_cook_ac: 35000,
-    suite_function: 7500
-  };
+  // ── Dynamic Pricing & Packages ──────────────────────────────
+  const pricing = {};
+  
+  try {
+    const q = query(collection(db, "packages"), orderBy("order", "asc"));
+    const snapshot = await getDocs(q);
+    
+    const largeContainer = document.getElementById('dynamicPackagesContainer');
+    const smallContainer = document.getElementById('dynamicSmallPackagesContainer');
+    const packageSelect = document.getElementById('package_type');
+
+    if (largeContainer) largeContainer.innerHTML = '';
+    if (smallContainer) smallContainer.innerHTML = '';
+    
+    // Reset options
+    if (packageSelect) {
+      packageSelect.innerHTML = '<option value="">— Select a Package —</option>';
+    }
+
+    snapshot.forEach(docSnap => {
+      const pkg = docSnap.data();
+      const codeName = docSnap.id;
+      
+      // Store in pricing map
+      pricing[codeName] = pkg.price;
+      
+      // Add to select dropdown
+      if (packageSelect) {
+        const option = document.createElement('option');
+        option.value = codeName;
+        option.textContent = `${pkg.title} · ${pkg.subtitle} — LKR ${pkg.price.toLocaleString('en-LK')}`;
+        packageSelect.appendChild(option);
+      }
+
+      // Build DOM Card
+      if (pkg.isSmallCard && smallContainer) {
+        const card = document.createElement('div');
+        card.className = "pricing-card w-[85vw] flex-shrink-0 snap-center md:w-auto bg-parchment/5 border border-gold/20 rounded-sm p-6 hover:border-gold/60 transition-all duration-500 group flex flex-col md:flex-row items-start md:items-center gap-6";
+        card.innerHTML = `
+          <div class="text-4xl flex-shrink-0">${pkg.icon}</div>
+          <div class="flex-1">
+            <h3 class="font-display text-lg text-parchment font-semibold">${pkg.title}</h3>
+            <p class="font-classic text-parchment/50 text-xs tracking-widest uppercase mb-2">${pkg.subtitle}</p>
+            <span class="font-display text-2xl font-bold text-gold">${pkg.price.toLocaleString('en-LK')} <span class="font-classic text-sm text-parchment/50">LKR/day</span></span>
+          </div>
+          <a href="#booking" class="flex-shrink-0 border border-gold/40 text-gold font-classic text-xs tracking-widest uppercase px-4 py-2 rounded-sm group-hover:bg-gold group-hover:text-woods transition-all duration-300">
+            Book
+          </a>
+        `;
+        smallContainer.appendChild(card);
+      } else if (largeContainer) {
+        const card = document.createElement('div');
+        
+        let featureList = pkg.features && pkg.features.length > 0 
+          ? `<ul class="space-y-2 mb-8 font-body text-${pkg.isFeatured ? 'woods' : 'parchment/70'} text-sm">
+              ${pkg.features.map(f => `<li class="flex gap-2"><span class="${pkg.isFeatured ? 'text-woods/60' : 'text-gold'}">✦</span> ${f}</li>`).join('')}
+             </ul>`
+          : '';
+
+        if (pkg.isFeatured) {
+          card.className = "pricing-card-featured w-[85vw] flex-shrink-0 snap-center md:w-auto relative bg-gradient-to-b from-gold to-gold-dark rounded-sm p-8 shadow-2xl transform scale-105";
+          card.innerHTML = `
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-woods text-gold font-classic text-xs tracking-widest uppercase px-4 py-1 rounded-full border border-gold/30">
+              Most Popular
+            </div>
+            <div class="text-woods text-3xl mb-4">${pkg.icon}</div>
+            <h3 class="font-display text-xl text-woods font-semibold mb-2">${pkg.title}</h3>
+            <p class="font-classic text-woods/60 text-xs tracking-widest uppercase mb-6">${pkg.subtitle}</p>
+            <div class="flex items-baseline gap-2 mb-6">
+              <span class="font-display text-4xl font-bold text-woods">${pkg.price.toLocaleString('en-LK')}</span>
+              <span class="font-classic text-woods/60 text-sm">LKR / day</span>
+            </div>
+            ${featureList}
+            <a href="#booking" class="block text-center bg-woods text-gold font-classic text-xs tracking-widest uppercase py-3 rounded-sm hover:bg-woods-dark transition-all duration-300">
+              Book This Package
+            </a>
+          `;
+        } else {
+          card.className = "pricing-card w-[85vw] flex-shrink-0 snap-center md:w-auto bg-parchment/5 border border-gold/20 rounded-sm p-8 hover:border-gold/60 hover:bg-parchment/10 transition-all duration-500 group";
+          card.innerHTML = `
+            <div class="text-gold text-3xl mb-4">${pkg.icon}</div>
+            <h3 class="font-display text-xl text-parchment font-semibold mb-2">${pkg.title}</h3>
+            <p class="font-classic text-parchment/50 text-xs tracking-widest uppercase mb-6">${pkg.subtitle}</p>
+            <div class="flex items-baseline gap-2 mb-6">
+              <span class="font-display text-4xl font-bold text-gold">${pkg.price.toLocaleString('en-LK')}</span>
+              <span class="font-classic text-parchment/50 text-sm">LKR / day</span>
+            </div>
+            ${featureList}
+            <a href="#booking" class="block text-center border border-gold/40 text-gold font-classic text-xs tracking-widest uppercase py-3 rounded-sm group-hover:bg-gold group-hover:text-woods transition-all duration-300">
+              Book This Package
+            </a>
+          `;
+        }
+        largeContainer.appendChild(card);
+      }
+    });
+    
+    // Initial call to update price preview if values were already set (e.g. back button cache)
+    if (typeof updatePricePreview === 'function') {
+      updatePricePreview();
+    }
+  } catch (error) {
+    console.error("Error loading packages:", error);
+  }
 
   // ── Flatpickr Date Pickers ────────────────────────────────
   const today    = new Date();

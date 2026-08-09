@@ -1,4 +1,6 @@
 import { db } from "./firebase.js";
+import { requireAuth } from "./admin-auth.js";
+requireAuth(['Admin']);
 import { collection, addDoc, getDocs, deleteDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const IMGBB_API_KEY = "b0b14f09f4ec988d05c5de896a3d976b";
