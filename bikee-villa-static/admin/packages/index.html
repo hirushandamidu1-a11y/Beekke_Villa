@@ -83,6 +83,25 @@
           <button onclick="toggleSidebar()" class="lg:hidden text-gold text-xl p-1">☰</button>
           <div><h1 class="font-display text-xl text-parchment font-semibold">Packages</h1><p class="font-classic text-parchment/30 text-xs tracking-wider">Manage Pricing & Packages</p></div>
         </div>
+
+        <div class="flex items-center gap-4">
+          <!-- Notification Bell Container -->
+          <div class="relative" id="notifContainer">
+            <button id="notifBellBtn" class="relative p-2 text-gold hover:text-gold-light text-xl transition-colors focus:outline-none" title="Check-out Notifications">
+              🔔
+              <span id="notifBadge" class="hidden absolute -top-1 -right-1 bg-red-500 text-white font-bold text-[0.65rem] px-1.5 py-0.5 rounded-full animate-pulse">0</span>
+            </button>
+            <div id="notifDropdown" class="hidden absolute right-0 mt-2 w-80 bg-woods-dark border border-gold/30 rounded-lg shadow-2xl p-4 z-50">
+              <div class="flex items-center justify-between border-b border-gold/10 pb-2 mb-3">
+                <h4 class="font-display text-sm text-gold font-bold">Check-out Alerts</h4>
+                <span class="font-classic text-[0.65rem] text-parchment/40 uppercase tracking-widest">Today & Recent</span>
+              </div>
+              <div id="notifList" class="max-h-64 overflow-y-auto space-y-2">
+                <p class="text-xs text-parchment/40 text-center py-4 font-classic">Loading alerts...</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </header>
       
       <div class="flex-1 p-6 lg:p-8 overflow-y-auto">

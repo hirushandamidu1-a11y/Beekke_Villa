@@ -5,9 +5,16 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── 1. Sticky Navbar & Mobile Sticky Bar ──────────────────────────────────────
+  // ── 1. Sticky Navbar, Mobile Sticky Bar & WhatsApp Float ─────────────────────
   const navbar = document.getElementById('navbar');
   const mobileStickyBar = document.getElementById('mobileStickyBar');
+  const whatsappFloat = document.querySelector('.whatsapp-float');
+  let whatsappTimeout;
+
+  if (whatsappFloat) {
+    whatsappFloat.classList.add('is-hidden');
+  }
+
   const onScroll = () => {
     if (window.scrollY > 60) {
       navbar.classList.add('scrolled');
@@ -21,6 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         mobileStickyBar.classList.add('translate-y-full');
       }
+    }
+
+    if (whatsappFloat) {
+      whatsappFloat.classList.remove('is-hidden');
+      clearTimeout(whatsappTimeout);
+      whatsappTimeout = setTimeout(() => {
+        whatsappFloat.classList.add('is-hidden');
+      }, 3000);
     }
   };
   window.addEventListener('scroll', onScroll, { passive: true });

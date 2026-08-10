@@ -41,11 +41,22 @@
         <a href="../index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">📊</span><span>Dashboard</span></a>
         <a href="../bookings/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">📅</span><span>Bookings</span></a>
         <a href="../gallery/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">🖼️</span><span>Gallery</span></a>
+        <a href="../packages/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">📦</span><span>Packages</span></a>
         <a href="../experiences/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">🌴</span><span>Experiences</span></a>
         <a href="index.html" class="sidebar-link active flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">💬</span><span>Testimonials</span></a>
         <a href="../faqs/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">❓</span><span>FAQs</span></a>
         <a href="../settings/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">⚙️</span><span>Settings</span></a>
+        <a href="../users/index.html" class="sidebar-link flex items-center gap-4 px-6 py-3 font-classic text-sm tracking-wider text-parchment/60"><span class="text-lg">👥</span><span>Users</span></a>
       </nav>
+      <div class="p-6 border-t border-gold/10">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center text-gold font-display font-bold text-sm">A</div>
+          <div><p class="font-classic text-parchment text-sm">Administrator</p></div>
+        </div>
+        <button id="logoutBtn" class="w-full block text-center font-classic text-xs tracking-widest uppercase text-parchment/30 hover:text-red-400 transition-colors py-2 border border-parchment/10 rounded hover:border-red-400/30">
+          Sign Out
+        </button>
+      </div>
     </aside>
     <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 z-30 hidden lg:hidden" onclick="toggleSidebar()"></div>
     
@@ -54,6 +65,25 @@
         <div class="flex items-center gap-4">
           <button onclick="toggleSidebar()" class="lg:hidden text-gold text-xl p-1">☰</button>
           <div><h1 class="font-display text-xl text-parchment font-semibold">Testimonials</h1><p class="font-classic text-parchment/30 text-xs tracking-wider">Manage guest reviews</p></div>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <!-- Notification Bell Container -->
+          <div class="relative" id="notifContainer">
+            <button id="notifBellBtn" class="relative p-2 text-gold hover:text-gold-light text-xl transition-colors focus:outline-none" title="Check-out Notifications">
+              🔔
+              <span id="notifBadge" class="hidden absolute -top-1 -right-1 bg-red-500 text-white font-bold text-[0.65rem] px-1.5 py-0.5 rounded-full animate-pulse">0</span>
+            </button>
+            <div id="notifDropdown" class="hidden absolute right-0 mt-2 w-80 bg-woods-dark border border-gold/30 rounded-lg shadow-2xl p-4 z-50">
+              <div class="flex items-center justify-between border-b border-gold/10 pb-2 mb-3">
+                <h4 class="font-display text-sm text-gold font-bold">Check-out Alerts</h4>
+                <span class="font-classic text-[0.65rem] text-parchment/40 uppercase tracking-widest">Today & Recent</span>
+              </div>
+              <div id="notifList" class="max-h-64 overflow-y-auto space-y-2">
+                <p class="text-xs text-parchment/40 text-center py-4 font-classic">Loading alerts...</p>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
       

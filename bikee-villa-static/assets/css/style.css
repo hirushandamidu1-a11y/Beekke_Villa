@@ -339,15 +339,21 @@ body {
   padding: 12px 24px 12px 16px; 
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   z-index: 9999;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
   text-decoration: none;
+}
+
+.whatsapp-float.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
 }
 
 @media (max-width: 1024px) {
   .whatsapp-float {
-    bottom: 90px;
+    bottom: 30px;
     right: 20px;
-    padding: 10px 16px 10px 12px;
+    padding: 12px;
   }
   .whatsapp-float span {
     display: none; /* Hide text on mobile to save space */

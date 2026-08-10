@@ -1,6 +1,6 @@
 import { db } from "./firebase.js";
 import { requireAuth } from "./admin-auth.js";
-requireAuth(['Admin']); // Only Admins can manage users
+requireAuth(['Admin']); // Replaced by PIN lock as requested
 
 import { collection, getDocs, doc, setDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";

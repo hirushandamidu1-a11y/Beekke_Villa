@@ -169,7 +169,7 @@
   <div class="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 border-gold/40 hidden md:block"></div>
 
   <!-- Hero Content -->
-  <div class="relative z-10 text-center px-6 max-w-5xl mx-auto hero-content pt-24 md:pt-0">
+  <div class="relative z-10 text-center px-6 max-w-5xl mx-auto hero-content pt-24 md:pt-0 pb-32">
 
     <!-- Pre-heading ornament -->
     <div class="flex items-center justify-center gap-4 mb-6 fade-in-up" style="animation-delay:0.2s">
@@ -219,8 +219,8 @@
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-parchment/40 fade-in-up" style="animation-delay:1.2s">
-    <span class="font-classic text-xs tracking-widest uppercase">Scroll</span>
+  <div class="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-parchment/40 fade-in-up" style="animation-delay:1.2s">
+    <span class="font-classic text-xs tracking-widest uppercase pl-[0.1em]">Scroll</span>
     <div class="w-px h-12 bg-gradient-to-b from-parchment/40 to-transparent scroll-line"></div>
   </div>
 </section>
@@ -286,15 +286,15 @@
       <div class="reveal relative">
         <div class="grid grid-cols-2 gap-4">
           <div class="col-span-2 aspect-[16/9] overflow-hidden rounded-sm shadow-2xl">
-            <img src="assets/images/gallery/archway.jpg" alt="Grand colonial archway"
+            <img src="assets/images/gallery/01.jpeg" alt="Villa Exterior"
                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
           </div>
           <div class="aspect-square overflow-hidden rounded-sm shadow-xl">
-            <img src="assets/images/gallery/lounge.jpg" alt="Antique lounge"
+            <img src="assets/images/gallery/user_img3.jpg" alt="Antique furniture"
                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
           </div>
           <div class="aspect-square overflow-hidden rounded-sm shadow-xl">
-            <img src="assets/images/gallery/dining.jpg" alt="Dining hall"
+            <img src="assets/images/gallery/05.jpeg" alt="Dining hall"
                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
           </div>
         </div>
@@ -553,7 +553,7 @@
             <h2 class="text-3xl md:text-5xl font-serif text-colonial-900 mb-4">Local Experiences</h2>
             <div class="w-24 h-1 bg-colonial-500 mx-auto mb-6"></div>
         </div>
-        <div class="flex items-center justify-between gap-4 mb-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <p class="text-colonial-600 max-w-2xl font-body" data-aos="fade-up" data-aos-delay="100">
                 Immerse yourself in the vibrant culture and natural beauty of southern Sri Lanka. 
                 Whether you want to explore heritage sites or catch some waves, Beekke Willa is your ideal base.
@@ -709,7 +709,7 @@
             <h2 class="text-3xl md:text-5xl font-display mb-4">What Our Guests Say</h2>
             <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
             <!-- Swipe Indicator (Mobile Only) -->
-            <div class="md:hidden flex items-center justify-center gap-2 pr-2">
+            <div class="md:hidden flex items-center justify-center gap-2 pr-2 mb-6">
               <span class="font-classic text-gold-light text-[10px] tracking-widest uppercase opacity-80">Swipe</span>
               <svg class="w-5 h-5 text-gold swipe-hint-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </div>
@@ -1141,15 +1141,15 @@
         <div class="flex gap-4">
           <a href="https://facebook.com/bikeevilla" target="_blank" aria-label="Facebook"
              class="w-10 h-10 border border-gold/20 rounded-full flex items-center justify-center text-parchment/60 hover:border-gold hover:text-gold transition-all duration-300 text-sm">
-            <svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
           <a href="https://instagram.com/bikeevilla" target="_blank" aria-label="Instagram"
              class="w-10 h-10 border border-gold/20 rounded-full flex items-center justify-center text-parchment/60 hover:border-gold hover:text-gold transition-all duration-300 text-sm">
-            <svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           </a>
           <a href="https://wa.me/94779493059" target="_blank" aria-label="WhatsApp"
              class="w-10 h-10 border border-gold/20 rounded-full flex items-center justify-center text-parchment/60 hover:border-gold hover:text-gold transition-all duration-300 text-sm">
-            <svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.128.552 4.195 1.6 6.012L.48 24l6.113-1.597A11.966 11.966 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.03S18.676 0 12.031 0zm0 21.996c-1.802 0-3.564-.482-5.111-1.393l-.366-.215-3.799.992.997-3.69-.236-.376A9.972 9.972 0 012.035 12.03c0-5.523 4.478-10.001 10.001-10.001 5.522 0 10.001 4.478 10.001 10.001 0 5.522-4.479 10.001-10.001 10.001zm5.553-7.585c-.304-.152-1.799-.887-2.077-.988-.278-.101-.481-.152-.684.152-.202.304-.784.988-.962 1.191-.177.202-.355.228-.658.076-.304-.152-1.285-.473-2.449-1.516-.906-.811-1.517-1.815-1.694-2.119-.177-.304-.019-.468.133-.62.137-.137.304-.355.456-.532.152-.178.203-.304.304-.507.101-.203.051-.38-.025-.532-.076-.152-.684-1.649-.937-2.257-.247-.594-.497-.514-.684-.523-.177-.008-.38-.008-.582-.008s-.532.076-.811.38c-.278.304-1.064 1.039-1.064 2.534 0 1.495 1.089 2.94 1.241 3.142.152.203 2.143 3.271 5.192 4.587.725.313 1.291.501 1.732.641.728.23 1.391.197 1.916.12.587-.089 1.802-.736 2.055-1.445.253-.709.253-1.318.177-1.445-.076-.127-.279-.203-.583-.355z"/></svg>
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.128.552 4.195 1.6 6.012L.48 24l6.113-1.597A11.966 11.966 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.03S18.676 0 12.031 0zm0 21.996c-1.802 0-3.564-.482-5.111-1.393l-.366-.215-3.799.992.997-3.69-.236-.376A9.972 9.972 0 012.035 12.03c0-5.523 4.478-10.001 10.001-10.001 5.522 0 10.001 4.478 10.001 10.001 0 5.522-4.479 10.001-10.001 10.001zm5.553-7.585c-.304-.152-1.799-.887-2.077-.988-.278-.101-.481-.152-.684.152-.202.304-.784.988-.962 1.191-.177.202-.355.228-.658.076-.304-.152-1.285-.473-2.449-1.516-.906-.811-1.517-1.815-1.694-2.119-.177-.304-.019-.468.133-.62.137-.137.304-.355.456-.532.152-.178.203-.304.304-.507.101-.203.051-.38-.025-.532-.076-.152-.684-1.649-.937-2.257-.247-.594-.497-.514-.684-.523-.177-.008-.38-.008-.582-.008s-.532.076-.811.38c-.278.304-1.064 1.039-1.064 2.534 0 1.495 1.089 2.94 1.241 3.142.152.203 2.143 3.271 5.192 4.587.725.313 1.291.501 1.732.641.728.23 1.391.197 1.916.12.587-.089 1.802-.736 2.055-1.445.253-.709.253-1.318.177-1.445-.076-.127-.279-.203-.583-.355z"/></svg>
           </a>
         </div>
       </div>
@@ -1213,11 +1213,29 @@
     <p class="font-classic text-parchment/30 text-xs tracking-wider">
       &copy; 2026 Beekke Villa, Galle, Sri Lanka. All rights reserved.
     </p>
-    <p class="font-classic text-parchment/20 text-xs tracking-wider text-right">
+    <button onclick="document.getElementById('devModal').classList.remove('hidden')" class="font-classic text-gold/60 hover:text-gold text-xs tracking-wider text-right transition-colors cursor-pointer focus:outline-none">
       Powered By M.R.Link Technology
-    </p>
+    </button>
   </div>
 </footer>
+
+<!-- Developer Info Modal -->
+<div id="devModal" class="fixed inset-0 bg-black/80 z-[9999] flex items-center justify-center hidden p-4 transition-opacity" onclick="if(event.target===this) this.classList.add('hidden')">
+  <div class="bg-woods-dark border border-gold/30 rounded-lg p-8 max-w-sm w-full text-center relative shadow-2xl">
+    <button onclick="document.getElementById('devModal').classList.add('hidden')" class="absolute top-4 right-4 text-parchment/50 hover:text-gold text-2xl transition-colors leading-none focus:outline-none">&times;</button>
+    
+    <div class="w-16 h-16 mx-auto bg-gold/10 rounded-full flex items-center justify-center mb-4 border border-gold/30">
+      <span class="text-3xl text-gold">👨‍💻</span>
+    </div>
+    
+    <h3 class="font-display text-xl text-gold mb-1 font-semibold">Developer & UI/UX Designer</h3>
+    <p class="font-classic text-parchment text-lg mb-6 tracking-wide">Dimuthu Dishan</p>
+    
+    <a href="tel:0762529906" class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 text-gold px-6 py-2.5 rounded-full font-classic tracking-widest hover:bg-gold hover:text-woods-dark transition-all transform hover:-translate-y-0.5">
+      <span>📞</span> 0762529906
+    </a>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════
      SCRIPTS
