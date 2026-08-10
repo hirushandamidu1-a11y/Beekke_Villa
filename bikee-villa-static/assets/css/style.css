@@ -316,12 +316,12 @@ body {
 }
 
 /* Staggered entrance animation for revealed items */
-#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(11) { transition-delay: 0.05s; }
-#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(12) { transition-delay: 0.10s; }
-#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(13) { transition-delay: 0.15s; }
-#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(14) { transition-delay: 0.20s; }
-#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(15) { transition-delay: 0.25s; }
-#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(n+16) { transition-delay: 0.30s; }
+#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(9) { transition-delay: 0.05s; }
+#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(10) { transition-delay: 0.10s; }
+#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(11) { transition-delay: 0.15s; }
+#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(12) { transition-delay: 0.20s; }
+#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(13) { transition-delay: 0.25s; }
+#galleryGrid.gallery-expanded .gallery-hidden-extra:nth-child(n+14) { transition-delay: 0.30s; }
 
 /* ══════════════════════════════════════════════════════════════
    FLOATING WHATSAPP WIDGET

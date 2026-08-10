@@ -33,15 +33,15 @@ async function initDashboard() {
                 
                 recentRowsHTML += `
                 <tr class="table-row border-b border-gold/5">
-                  <td class="px-6 py-3 font-classic text-gold text-sm">${data.booking_ref || '-'}</td>
-                  <td class="px-6 py-3">
+                  <td data-label="Ref" class="px-6 py-3 font-classic text-gold text-sm">${data.booking_ref || '-'}</td>
+                  <td data-label="Guest" class="px-6 py-3">
                     <p class="text-parchment text-sm">${data.first_name} ${data.last_name}</p>
                     <p class="text-parchment/30 text-xs">${data.email}</p>
                   </td>
-                  <td class="px-6 py-3 text-parchment/60 text-sm">${data.package || 'Standard'}</td>
-                  <td class="px-6 py-3 text-parchment/60 text-sm">${dateStr}</td>
-                  <td class="px-6 py-3 font-display text-gold text-sm font-semibold">LKR ${data.total_price ? data.total_price.toLocaleString() : '0'}</td>
-                  <td class="px-6 py-3">${statusBadge}</td>
+                  <td data-label="Package" class="px-6 py-3 text-parchment/60 text-sm">${data.package || 'Standard'}</td>
+                  <td data-label="Check-In" class="px-6 py-3 text-parchment/60 text-sm">${dateStr}</td>
+                  <td data-label="Amount" class="px-6 py-3 font-display text-gold text-sm font-semibold">LKR ${data.total_price ? data.total_price.toLocaleString() : '0'}</td>
+                  <td data-label="Status" class="px-6 py-3">${statusBadge}</td>
                 </tr>
                 `;
                 rowCount++;

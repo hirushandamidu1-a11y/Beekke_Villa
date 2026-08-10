@@ -135,26 +135,26 @@ function updateUI() {
             }
 
             if (b.phone) {
-                actions += `<button class="action-btn btn-sm bg-green-600/30 text-green-300 hover:bg-green-600 hover:text-white mr-1" data-id="${b.id}" data-action="thankyou" title="Send WhatsApp Thank-you">💬</button>`;
+                actions += `<button class="action-btn btn-sm bg-green-600/30 text-green-300 hover:bg-green-600 hover:text-white mr-1 flex items-center justify-center gap-2" data-id="${b.id}" data-action="thankyou" title="Send WhatsApp Message"><span>💬</span> <span>WhatsApp</span></button>`;
             }
 
             if (sessionStorage.getItem('adminRole') === 'Admin') {
-                actions += `<button class="action-btn btn-sm btn-delete" data-id="${b.id}" data-action="delete" title="Delete">🗑</button>`;
+                actions += `<button class="action-btn btn-sm btn-delete flex items-center justify-center" data-id="${b.id}" data-action="delete" title="Delete">🗑</button>`;
             }
 
             html += `
             <tr class="table-row border-b border-gold/5">
-                <td class="px-4 py-3"><span class="font-classic text-gold text-sm">${b.booking_ref || '-'}</span></td>
-                <td class="px-4 py-3">
+                <td data-label="Ref" class="px-4 py-3"><span class="font-classic text-gold text-sm">${b.booking_ref || '-'}</span></td>
+                <td data-label="Guest" class="px-4 py-3">
                     <p class="text-parchment text-sm">${b.first_name || b.full_name || ''} ${b.last_name || ''}</p>
                     <p class="text-parchment/30 text-xs">${b.email || '-'}</p>
                 </td>
-                <td class="px-4 py-3 text-parchment/50 text-sm hidden md:table-cell">${b.phone || '-'}</td>
-                <td class="px-4 py-3 text-parchment/60 text-sm">${b.package || b.package_type || 'Standard'}</td>
-                <td class="px-4 py-3 text-parchment/50 text-xs hidden lg:table-cell">${dateStr}</td>
-                <td class="px-4 py-3 font-display text-gold text-sm font-semibold">LKR ${b.total_price ? b.total_price.toLocaleString() : '0'}</td>
-                <td class="px-4 py-3">${statusBadge}</td>
-                <td class="px-4 py-3"><div class="flex items-center justify-center">${actions}</div></td>
+                <td data-label="Phone" class="px-4 py-3 text-parchment/50 text-sm hidden md:table-cell">${b.phone || '-'}</td>
+                <td data-label="Package" class="px-4 py-3 text-parchment/60 text-sm">${b.package || b.package_type || 'Standard'}</td>
+                <td data-label="Dates" class="px-4 py-3 text-parchment/50 text-xs hidden lg:table-cell">${dateStr}</td>
+                <td data-label="Amount" class="px-4 py-3 font-display text-gold text-sm font-semibold">LKR ${b.total_price ? b.total_price.toLocaleString() : '0'}</td>
+                <td data-label="Status" class="px-4 py-3">${statusBadge}</td>
+                <td data-label="Actions" class="px-4 py-3"><div class="flex flex-wrap items-center justify-end md:justify-center gap-2 w-full">${actions}</div></td>
             </tr>
             `;
         });

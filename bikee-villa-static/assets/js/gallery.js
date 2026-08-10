@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       count++;
       
       const item = document.createElement('div');
-      item.className = `gallery-item w-[75vw] flex-shrink-0 snap-center md:w-auto overflow-hidden rounded-[2rem] shadow-lg cursor-pointer group relative aspect-[4/5] bg-woods-dark ${count > 10 ? 'gallery-hidden-extra' : ''}`;
+      item.className = `gallery-item w-[75vw] flex-shrink-0 snap-center md:w-auto overflow-hidden rounded-[2rem] shadow-lg cursor-pointer group relative aspect-[4/5] bg-woods-dark ${count > 8 ? 'gallery-hidden-extra' : ''}`;
       item.setAttribute('data-category', img.category || 'other');
       item.setAttribute('data-src', img.url);
       item.setAttribute('data-title', img.title || 'Gallery Image');
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let expanded = false;
 
     // Check if we even need the button
-    if (galleryItems.length <= 10) {
+    if (galleryItems.length <= 8) {
       document.getElementById('seeMoreWrap').style.display = 'none';
     }
 
