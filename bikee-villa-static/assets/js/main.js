@@ -21,9 +21,28 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       navbar.classList.remove('scrolled');
     }
+    // Calculate if user is at the top (hero) or bottom (footer)
+    const homeSection = document.getElementById('home');
+    const footer = document.querySelector('footer');
+    
+    let isAtTop = false;
+    if (homeSection) {
+        isAtTop = window.scrollY < (homeSection.offsetHeight * 0.7);
+    } else {
+        isAtTop = window.scrollY < window.innerHeight * 0.7;
+    }
+
+    let isAtBottom = false;
+    if (footer) {
+        isAtBottom = (window.scrollY + window.innerHeight) > footer.offsetTop;
+    } else {
+        isAtBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 150);
+    }
+    
+    const shouldHideWidgets = isAtTop || isAtBottom;
     
     if (mobileStickyBar) {
-      if (window.scrollY > window.innerHeight * 0.7) {
+      if (!shouldHideWidgets) {
         mobileStickyBar.classList.remove('translate-y-full');
       } else {
         mobileStickyBar.classList.add('translate-y-full');
@@ -31,11 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (whatsappFloat) {
-      whatsappFloat.classList.remove('is-hidden');
-      clearTimeout(whatsappTimeout);
-      whatsappTimeout = setTimeout(() => {
+      if (!shouldHideWidgets) {
+        whatsappFloat.classList.remove('is-hidden');
+        clearTimeout(whatsappTimeout);
+        whatsappTimeout = setTimeout(() => {
+          whatsappFloat.classList.add('is-hidden');
+        }, 1000);
+      } else {
         whatsappFloat.classList.add('is-hidden');
-      }, 3000);
+      }
     }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
